@@ -1,0 +1,906 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="es" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Conceptos de vibraciones. &#8212; ACUS 125 jupyter-book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contenidos/unidad1/clase1';</script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="prev" title="Libro de clases: ACUS 125 Aislamiento y Análisis de Vibraciones." href="../../README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Libro de clases: ACUS 125 Aislamiento y Análisis de Vibraciones.
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vibraciones en sistemas de un grado de libertad.</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Conceptos de vibraciones.</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/contenidos/unidad1/clase1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Conceptos de vibraciones.</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Conceptos de vibraciones.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cual-es-la-pregunta-de-investigacion-en-un-sistema-que-vibra">1.1. Cuál es la pregunta de investigación en un sistema que vibra?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-movimiento-y-leyes-de-newton">1.2. Ecuaciones de movimiento y leyes de Newton</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagrama-de-cuerpo-libre">1.3. Diagrama de cuerpo libre:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-aplicacion">1.4. Ejemplo de aplicación.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desarrollo">1.4.1. Desarrollo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotear-la-solucion-lineal-y-no-lineal-de-un-pendulo-simple">2. Plotear la solución lineal y no lineal de un péndulo simple</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotear-la-solucion-no-lineal-de-un-pendulo-simple">2.1. Plotear la solución no lineal de un péndulo simple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparando-resultados">2.2. Comparando resultados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cuantificar-el-error-entre-estos-dos-resultados">2.3. Cuantificar el error entre estos dos resultados</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="conceptos-de-vibraciones">
+<h1><span class="section-number">1. </span>Conceptos de vibraciones.<a class="headerlink" href="#conceptos-de-vibraciones" title="Permalink to this heading">#</a></h1>
+<p>Un sistema que realiza movimientos oscilatorios, también llamado, sistema vibratorio, lo podemos definir como un conjunto de componentes que actúan como un todo.</p>
+<p>Como motivación al análisis, en la Figura 1 se puede observar una representación idealizada del sistema auditivo humano. Específicamente, se muestra a la membrana basilar ubicada en la cóclea, como un sistema de <span class="math notranslate nohighlight">\(N\)</span> grados de libertad, compuesto de <span class="math notranslate nohighlight">\(N\)</span> elementos discretos de masas y resortes. Se observa que la rigidez de estos resortes varía de acuerdo a la distancia de la membrana basilar, que es medida desde la base o entrada a la cóclea (extremo izquierdo), hasta el apex (extremo derecho). <a href="https://iopscience.iop.org/article/10.1088/0964-1726/21/6/064001"> Paper
+The cochlea as a smart structure. Stephen J Elliott and Christopher A Shera Published 30 May 2012. IOP Publishing Ltd. Smart Materials and Structures, Volume 21, Number 6</a>.</p>
+<p><img alt="Figure 1. Una representación idealizada del sistema auditivo periférico humano" src="../../_images/Elliot_Sistema.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;ZgQ8NeKo2oM&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="800"
+            height="300"
+            src="https://www.youtube.com/embed/ZgQ8NeKo2oM"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<section id="cual-es-la-pregunta-de-investigacion-en-un-sistema-que-vibra">
+<h2><span class="section-number">1.1. </span>Cuál es la pregunta de investigación en un sistema que vibra?<a class="headerlink" href="#cual-es-la-pregunta-de-investigacion-en-un-sistema-que-vibra" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>Cómo responderá un sistema a excitaciones, o estímulos, de diversa naturaleza? Pensar en el sistema auditivo!</p></li>
+<li><p>En análisis de un sistema que vibra se puede realizar en el dominio del tiempo, o en el dominio de la frecuencia donde es importante comprender el comportamiento de las funciones de transferencia.</p></li>
+<li><p>La manera en que responderá un sistema vibratorio, como se ve en la Figura 2, a una excitación <span class="math notranslate nohighlight">\(F(\omega)\)</span> dependerá de la naturaleza de la excitación y de las propiedades del sistema representadas por su función de transferencia <span class="math notranslate nohighlight">\(H(\omega)\)</span>, donde <span class="math notranslate nohighlight">\(\omega\)</span> es la frecuencia angular.</p></li>
+<li><p>Tales funciones se usan no sólo en análisis de vibraciones, sino que también en análisis modal de sistemas más complejos. El propósito del análisis modal es identificar las frecuencias naturales de un sistema, determinar el amortiguamiento y comprender las formas de modales de un sistema vibratorio.</p></li>
+<li><p>Como un punto de partida, para abordar esta pregunta se considera fundamental la Mecánica de Newton.</p></li>
+<li><p>Qué implica la Mecánica de Newton?</p></li>
+<li><blockquote>
+<div><p>Modelos de componentes.</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p>Modelos de sistemas.</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p>Ecuaciones diferenciales de movimiento.</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p>Características de la excitación.</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p>Características de la respuesta.</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p>Comportamiento de la vibración.</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p>Funciones de transferencia.</p>
+</div></blockquote>
+</li>
+</ul>
+<p><img alt="Figure 2. Sistema y función de transferencia" src="../../_images/FRF_IRVINE.jpg" /></p>
+</section>
+<section id="ecuaciones-de-movimiento-y-leyes-de-newton">
+<h2><span class="section-number">1.2. </span>Ecuaciones de movimiento y leyes de Newton<a class="headerlink" href="#ecuaciones-de-movimiento-y-leyes-de-newton" title="Permalink to this heading">#</a></h2>
+<p>El comportamiento del sistema vibratorio está gobernado por ecuaciones diferenciales de movimiento. Para encontrar la respuesta del sistema se deben resolver estas ecuaciones. Se suele comenzar revisando la mecánica de Newton.</p>
+<p>Aunque incialmente las leyes de Newton se formularon para partículas solas, éstas se pueden extender a sistemas de N partículas e incluso extender a un cuerpo rígido.</p>
+<ul>
+<li><blockquote>
+<div><p><span class="math notranslate nohighlight">\(1^{era}\)</span> Ley de Newton:</p>
+</div></blockquote>
+</li>
+</ul>
+<p>En ausencia de fuerzas, la expresión matemática de la primera ley:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\overrightarrow{\bf{F}}&amp;=\overrightarrow{0}
+\label{eq1}\tag{1}
+\end{align*}
+\]</div>
+<p>Si sobre una partícula sola, no hay fuerzas que actúen, entonces: <span class="math notranslate nohighlight">\(\overrightarrow{\bf{F}}=\overrightarrow{0}.\)</span> Eso significa, que la partícula se moverá con velocidad constante <span class="math notranslate nohighlight">\(\overrightarrow{\bf{v}}={\text{cte}}\)</span>, y en línea recta. <span class="math notranslate nohighlight">\(\overrightarrow{\bf{F}}(t)\)</span> y <span class="math notranslate nohighlight">\(\overrightarrow{\bf{v}}(t)\)</span> representan el vector de fuerza total resultante y el vector de velocidad, relativos a un conjunto de ejes inerciales-<span class="math notranslate nohighlight">\(xyz\)</span> (ver la siguiente figura). En la figura, <span class="math notranslate nohighlight">\(\overrightarrow{\bf{r}}\)</span> representa el vector de posición de la partícula de masa <span class="math notranslate nohighlight">\(m\)</span> relativa al espacio inercial -<span class="math notranslate nohighlight">\(xyz\)</span>.</p>
+<div>
+<img src="SistemaInercia4.png" width="250"/>
+</div><ul>
+<li><blockquote>
+<div><p><span class="math notranslate nohighlight">\(2^{a}\)</span> Ley de Newton:</p>
+</div></blockquote>
+</li>
+</ul>
+<p>La expresión matemática de la segunda ley:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\overrightarrow{\bf{F}}&amp;=\frac{d{\bf{\overrightarrow{p}}}}{dt}
+\label{eq2}\tag{2}
+\end{align*}
+\]</div>
+<p>Una partícula sola, de masa <span class="math notranslate nohighlight">\(m\)</span>, accionada por una fuerza <span class="math notranslate nohighlight">\(\overrightarrow{\bf{F}}\)</span> se mueve de modo que el vector fuerza es igual a la tasa de cambio del vector momentum lineal <span class="math notranslate nohighlight">\(\overrightarrow{\bf{p}}\)</span>, donde</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\overrightarrow{\bf{p}}&amp;=m{\bf{\overrightarrow{v}}}=m\dot{\overrightarrow{\bf{r}}}
+\label{eq3}\tag{3}
+\end{align*}
+\]</div>
+<p>donde la masa <span class="math notranslate nohighlight">\(m\)</span> es una cantidad positiva que no depende del tiempo. En la Ecuación anterior, <span class="math notranslate nohighlight">\(\dot{\overrightarrow{\bf{r}}}\)</span> representa la derivada con respecto al tiempo del vector de posición. Insertando la Ec. (<span class="xref myst">3</span>), en Ec. (<span class="xref myst">2</span>), se obtiene la <span class="math notranslate nohighlight">\(2^{a}\)</span> ley de Newton en su forma más reconocida:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\overrightarrow{\bf{F}}&amp;=m\dot{\bf{\overrightarrow{v}}}=m\ddot{\overrightarrow{\bf{r}}}= m{\overrightarrow{\bf{a}}}
+\label{eq4}\tag{4}
+\end{align*}
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\({\overrightarrow{\bf{a}}}\)</span> es el vector de aceleración de la partícula de masa <span class="math notranslate nohighlight">\(m\)</span> relativa al conjunto de ejes inerciales-<span class="math notranslate nohighlight">\(xyz\)</span>. La Ec. (<span class="xref myst">4</span>), <span class="math notranslate nohighlight">\(\overrightarrow{\bf{F}}=m{\overrightarrow{\bf{a}}}\)</span>, es la ecuación de movimiento de movimiento de la partícula de masa <span class="math notranslate nohighlight">\(m\)</span>. <span class="math notranslate nohighlight">\(\overrightarrow{\bf{F}}\)</span> representa la resultante de todas las fuerza que están accionando la partícula.</p>
+<p>Unidades. Sistema internacional: <span class="math notranslate nohighlight">\([m]=[\text{kg}]\)</span>; <span class="math notranslate nohighlight">\([\overrightarrow{\bf{F}}]=[\text{N}]\)</span>; donde <span class="math notranslate nohighlight">\(1[\text{N}]= 1 \text{kg}\cdot\text{m}/s^{2}.\)</span></p>
+<ul>
+<li><blockquote>
+<div><p><span class="math notranslate nohighlight">\(3^{a}\)</span> Ley de Newton:
+La expresión matemática de la tercera ley:</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\overrightarrow{\bf{f_{ij}}}&amp;=-\overrightarrow{\bf{f_{ji}}},\quad {\text{i}} \neq {\text{j}}
+\label{eq5}\tag{5}
+\end{align*}
+\]</div>
+<p>Cuando dos partículas ejercen fuerzas entre sí, las fuerzas yacen a lo largo de la línea que las une y los vectores de fuerzas correspondientes son uno el negativo del otro. Son vectores <strong>colineales</strong>.</p>
+</section>
+<section id="diagrama-de-cuerpo-libre">
+<h2><span class="section-number">1.3. </span>Diagrama de cuerpo libre:<a class="headerlink" href="#diagrama-de-cuerpo-libre" title="Permalink to this heading">#</a></h2>
+<p>Al utilizar la 2<span class="math notranslate nohighlight">\(^{\underline{a}}\)</span> Ley de Newton para derivar las ecuaciones de movimiento de una partícula de masa <span class="math notranslate nohighlight">\(m\)</span>, se suele hacer un <strong>diagrama de cuerpo libre</strong> (DCL) de cada una de las fuerzas que accionan <span class="math notranslate nohighlight">\(m\)</span>.</p>
+</section>
+<section id="ejemplo-de-aplicacion">
+<h2><span class="section-number">1.4. </span>Ejemplo de aplicación.<a class="headerlink" href="#ejemplo-de-aplicacion" title="Permalink to this heading">#</a></h2>
+<p>Un péndulo simple, no amortiguado, consiste de la partícula de masa <span class="math notranslate nohighlight">\(m\)</span>, suspendida de una cuerda de longitud <span class="math notranslate nohighlight">\(L\)</span>. Obtener la ecuación diferencial de movimiento para el desplazamiento angular <span class="math notranslate nohighlight">\(\theta (t)\)</span> del péndulo. También, derivar una expresión para la tensión <span class="math notranslate nohighlight">\(T\)</span> de la cuerda.</p>
+<div>
+<img src="pendulosimple.png" width="250"/>
+</div>
+<section id="desarrollo">
+<h3><span class="section-number">1.4.1. </span>Desarrollo<a class="headerlink" href="#desarrollo" title="Permalink to this heading">#</a></h3>
+<p>La solución del problema se puede obtener usando la 2<span class="math notranslate nohighlight">\(^{\underline{a}}\)</span> Ley de Newton. Previamente, se deben conocer las componentes: radial y transversal, de la aceleración.</p>
+<div>
+<img src="diagramacuerpolibre.png" width="150"/>
+</div>
+<p>En la Fig. 4, <span class="math notranslate nohighlight">\(\hat{r}\)</span> y <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> representan dos vectores unitarios, perpendiculares, que indican dirección en sentido radial y dirección en sentido transversal, respectivamente.</p>
+<p>En el DCL, la primera fuerza aplicada considerada es representada por <span class="math notranslate nohighlight">\(T\)</span>. Aunque la tensión <span class="math notranslate nohighlight">\(T\)</span> es una fuerza interna, ésta está jugando el rol de una fuerza externa que acciona la partícula de masa <span class="math notranslate nohighlight">\(m\)</span>. Mientras que la segunda fuerza considerada es el peso dado por: <span class="math notranslate nohighlight">\(mg.\)</span></p>
+<p>Del diagrama de cuerpo libre, se escriben las ecuaciones de movimiento, en términos de las componentes radial y transversal de la aceleración:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\sum_{}^{} F_{r} &amp;= mg\, \text{cos}(\theta)-T= m\,a_{r}\\
+\label{eq6}\tag{6}
+\end{align*}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\sum_{}^{} F_{\theta} &amp;= -mg\, \text{sen}(\theta)\,\,\,\,\,\,= m\,a_{\theta}
+\label{eq7}\tag{7}
+\end{align*}
+\]</div>
+<p>Del problema, se reconoce que el vector de posición tiene magnitud: <span class="math notranslate nohighlight">\(r = L = c^{\underline{te}}\)</span>.</p>
+<ul>
+<li><blockquote>
+<div><p>Deducción de las componentes de la aceleración:</p>
+</div></blockquote>
+</li>
+<li><p>Suponer que tenemos un movimiento circular como el de la siguiente figura, donde el vector de posición de <span class="math notranslate nohighlight">\(m\)</span>, es representado por <span class="math notranslate nohighlight">\(\overrightarrow{\bf{r}}\)</span>.</p></li>
+</ul>
+<div>
+<img src="Componentesa.png" width="250"/>
+</div>
+<p>Si se observa que <span class="math notranslate nohighlight">\(r = L = {\text{constante}}\)</span>, entonces</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\dot{r}&amp;=\ddot{r}=0
+\label{eq8}\tag{8}
+\end{align*}
+\]</div>
+<p>De la figura, el vector de posición de <span class="math notranslate nohighlight">\(m\)</span> se puede expresar como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\overrightarrow{\bf{r}}&amp;= x\hat{i}\,+\,y\hat{j}\\
+&amp;=r\,\text{cos}(\theta)\,\hat{i} + r\,\text{sen}(\theta)\,\hat{j}
+\label{eq9}\tag{9}
+\end{align*}
+\end{split}\]</div>
+<p>Mientras que el vector de velocidad de la partícula <span class="math notranslate nohighlight">\({\bf{\overrightarrow{v}}}\)</span> se obtiene al derivar <span class="math notranslate nohighlight">\({\bf{\overrightarrow{r}}}\)</span> respecto del tiempo en la Ec. (<span class="xref myst">9</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\bf{\overrightarrow{v}}&amp;=\,\dot{\overrightarrow{\bf{r}}}=-r\,\dot{\theta}\,\text{sen}(\theta)\,\hat{i}\,+\,r\,\dot{\theta}\,\text{cos}(\theta)\,\hat{j}\\
+&amp;=\,r\,\dot{\theta}\,(\,-\text{sen}(\theta)\,\hat{i}\,+\,\text{cos}(\theta)\,\hat{j}\,)\\
+\end{align*}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\bf{\overrightarrow{v}}&amp;=\,r\,\dot{\theta}\,\hat{\theta}
+\label{eq10}\tag{10}
+\end{align*}
+\]</div>
+<p>Si se llama <span class="math notranslate nohighlight">\(\bf{\overrightarrow{a}}\)</span> al vector de aceleración, entonces:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\bf{\overrightarrow{a}}&amp;=\,\dot{\overrightarrow{\bf{v}}}=\,r\,\ddot{\theta}\,\,(\,-\text{sen}(\theta)\,\hat{i}\,+\,\text{cos}(\theta)\,\hat{j}\,)\,+\,r\,\dot{\theta}\,\,(-\dot{\theta}\,\text{cos}(\theta)\,\hat{i}\,-\,\dot{\theta}\,\text{sen}(\theta)\,\hat{j}\,)\\
+&amp;=\,r\,\ddot{\theta}\,(\,-\text{sen}(\theta)\,\hat{i}\,+\,\text{cos}(\theta)\,\hat{j}\,)\,-\,r\,\dot{\theta}\,^{2}\,(\,\text{cos}(\theta)\,\hat{i}\,+\,\text{sen}(\theta)\,\hat{j}\,)\\
+&amp;=\,-\,r\,\dot{\theta}\,^{2}\,(\,\text{cos}(\theta)\,\hat{i}\,+\,\text{sen}(\theta)\,\hat{j}\,)\,+\,r\,\ddot{\theta}\,(\,-\text{sen}(\theta)\,\hat{i}\,+\,\text{cos}(\theta)\,\hat{j}\,)\\
+&amp;= \,-\,r\,\dot{\theta}\,^{2}\,\hat{r}\,+\,r\,\ddot{\theta}\,\hat{\theta}
+%\label{eq9}\tag{9}
+\end{align*}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\bf{\overrightarrow{a}}&amp;=\,-\,r\,\dot{\theta}\,^{2}\,\hat{r}\,+\,r\,\ddot{\theta}\,\hat{\theta}
+\label{eq11}\tag{11}
+\end{align*}
+\]</div>
+<ul class="simple">
+<li><p>Se observa que en un movimiento circular, la aceleración tiene dos componentes: una componente radial y otra componente transversal.</p></li>
+<li><p>Ahora, volviendo al problema del péndulo simple, si <span class="math notranslate nohighlight">\(r=L\)</span>, donde <span class="math notranslate nohighlight">\(L\)</span> es el largo de la cuerda, el vector de aceleración será:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\bf{\overrightarrow{a}}&amp;=\,-\,L\,\dot{\theta}\,^{2}\,\hat{r}\,+\,L\,\ddot{\theta}\,\hat{\theta}
+\label{eq12}\tag{12}
+\end{align*}
+\]</div>
+<p>Esto es, se tiene en este caso dos componentes: una radial</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+a_{r}&amp;=\,-\,L\,\dot{\theta}\,^{2}
+\end{align*}
+\label{eq13}\tag{13}
+\]</div>
+<p>y otra transversal:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+a_{\theta}&amp;=\,L\,\ddot{\theta}
+\end{align*}
+\label{eq14}\tag{14}
+\]</div>
+<p>Por lo tanto, reemplazando en las Ecs. (<span class="xref myst">6</span>) y (<span class="xref myst">7</span>), se tiene:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\sum_{}^{} F_{r} &amp; =mg\, \text{cos}(\theta)-T \, = m\,a_{r}\,=\,-m\,L\,\dot{\theta}\,^{2}
+\label{eq15}\tag{15}
+\end{align*}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\sum_{}^{} F_{\theta} &amp; = -mg\, \text{sen}(\theta)\,\quad= m\,L\,\ddot{\theta}
+\label{eq16}\tag{16}
+\end{align*}
+\]</div>
+<p>De la Ec. (<span class="xref myst">16</span>), se obtiene la ecuación diferencial <strong>no lineal</strong> de movimiento del péndulo simple:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+\ddot{\theta}\,+\,\frac{g}{L}\,\text{sen}(\theta)\,=\,0
+\label{eq17}\tag{17}
+\end{align}
+\]</div>
+<ul>
+<li><blockquote>
+<div><p>Suponiendo pequeños desplazamientos angulares, por serie de Taylor, se puede asumir que <span class="math notranslate nohighlight">\(\text{sen}(\theta)\,\sim \theta\)</span>. Por lo tanto, se re-escribe como una ecuación diferencial <strong>lineal</strong> de movimiento del péndulo simple:</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+\ddot{\theta}\,+\,\frac{g}{L}\,\theta\,=\,0
+\label{eq18}\tag{18}
+\end{align}
+\]</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="plotear-la-solucion-lineal-y-no-lineal-de-un-pendulo-simple">
+<h1><span class="section-number">2. </span>Plotear la solución lineal y no lineal de un péndulo simple<a class="headerlink" href="#plotear-la-solucion-lineal-y-no-lineal-de-un-pendulo-simple" title="Permalink to this heading">#</a></h1>
+<ul>
+<li><blockquote>
+<div><p>Solución para condiciones iniciales <span class="math notranslate nohighlight">\(\theta_{0}\)</span> y <span class="math notranslate nohighlight">\(\dot{\theta_{0}}\)</span>:</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><blockquote>
+<div><p>L = 1 m; g = 9.81 m/<span class="math notranslate nohighlight">\(s^2\)</span>; <span class="math notranslate nohighlight">\(\theta_{0} = \pi /3 = [60°]\)</span>; <span class="math notranslate nohighlight">\(\dot{\theta_{0}}=0\)</span> (rad/s)</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p>Solución lineal:</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+\theta (t) = \theta_{0}\cdot cos(\omega_{0}t) + \frac{\dot{\theta_{0}}}{\omega_{0}}\cdot sen(\omega_{0}t)
+\label{eq19}\tag{19}
+\end{align}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#https://cooperrc.github.io/engineering-dynamics/module_03/project.html</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span> <span class="c1"># m/s/s</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># m</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">L</span><span class="p">)</span> <span class="c1"># rad/s</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">w</span><span class="p">)</span> <span class="c1"># 2 time periods of motion</span>
+<span class="n">theta0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span>
+<span class="n">dtheta0</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">theta</span> <span class="o">=</span> <span class="n">theta0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">dtheta0</span><span class="o">/</span><span class="n">w</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">theta</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\theta(t)$ [degrees]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1dd13685734cb778cd199704c9b86f35f26d384190657c6e741f1ca40168c053.png" src="../../_images/1dd13685734cb778cd199704c9b86f35f26d384190657c6e741f1ca40168c053.png" />
+</div>
+</div>
+<section id="plotear-la-solucion-no-lineal-de-un-pendulo-simple">
+<h2><span class="section-number">2.1. </span>Plotear la solución no lineal de un péndulo simple<a class="headerlink" href="#plotear-la-solucion-no-lineal-de-un-pendulo-simple" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">pendulum</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;pendulum equations of motion for theta and dtheta/dt</span>
+<span class="sd">    arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    t: current time</span>
+<span class="sd">    x: current state variable [theta, dtheta/dt]</span>
+<span class="sd">    outputs</span>
+<span class="sd">    -------</span>
+<span class="sd">    dx: current derivative of state variable [dtheta/dt, ddtheta/ddt]&#39;&#39;&#39;</span>
+    
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">g</span><span class="o">/</span><span class="n">L</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">dx</span>
+
+
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">pendulum</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="p">[</span><span class="n">theta0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">t_eval</span> <span class="o">=</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.         0.08188027 0.16376055 0.24564082 0.32752109 0.40940136
+ 0.49128164 0.57316191 0.65504218 0.73692245 0.81880273 0.900683
+ 0.98256327 1.06444354 1.14632382 1.22820409 1.31008436 1.39196464
+ 1.47384491 1.55572518 1.63760545 1.71948573 1.801366   1.88324627
+ 1.96512654 2.04700682 2.12888709 2.21076736 2.29264764 2.37452791
+ 2.45640818 2.53828845 2.62016873 2.702049   2.78392927 2.86580954
+ 2.94768982 3.02957009 3.11145036 3.19333063 3.27521091 3.35709118
+ 3.43897145 3.52085173 3.602732   3.68461227 3.76649254 3.84837282
+ 3.93025309 4.01213336]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\theta(t)$ [degrees]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$\\theta(t)$ [degrees]&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/76321f8fb32bd7657b7a455178e3a28cef0bff554da0584b41a333223fd59e03.png" src="../../_images/76321f8fb32bd7657b7a455178e3a28cef0bff554da0584b41a333223fd59e03.png" />
+</div>
+</div>
+</section>
+<section id="comparando-resultados">
+<h2><span class="section-number">2.2. </span>Comparando resultados<a class="headerlink" href="#comparando-resultados" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">theta</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\theta(t)$ [degrees]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$\\theta(t)$ [degrees]&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/686c40edd599359e1bb757e6a29fbc8390be75c2ef9ae854bb1cb11c44680f80.png" src="../../_images/686c40edd599359e1bb757e6a29fbc8390be75c2ef9ae854bb1cb11c44680f80.png" />
+</div>
+</div>
+</section>
+<section id="cuantificar-el-error-entre-estos-dos-resultados">
+<h2><span class="section-number">2.3. </span>Cuantificar el error entre estos dos resultados<a class="headerlink" href="#cuantificar-el-error-entre-estos-dos-resultados" title="Permalink to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "bacus125"
+        },
+        kernelOptions: {
+            name: "bacus125",
+            path: "./contenidos/unidad1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'bacus125'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../README.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Libro de clases: ACUS 125 Aislamiento y Análisis de Vibraciones.</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Conceptos de vibraciones.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cual-es-la-pregunta-de-investigacion-en-un-sistema-que-vibra">1.1. Cuál es la pregunta de investigación en un sistema que vibra?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-movimiento-y-leyes-de-newton">1.2. Ecuaciones de movimiento y leyes de Newton</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagrama-de-cuerpo-libre">1.3. Diagrama de cuerpo libre:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-aplicacion">1.4. Ejemplo de aplicación.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desarrollo">1.4.1. Desarrollo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotear-la-solucion-lineal-y-no-lineal-de-un-pendulo-simple">2. Plotear la solución lineal y no lineal de un péndulo simple</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotear-la-solucion-no-lineal-de-un-pendulo-simple">2.1. Plotear la solución no lineal de un péndulo simple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparando-resultados">2.2. Comparando resultados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cuantificar-el-error-entre-estos-dos-resultados">2.3. Cuantificar el error entre estos dos resultados</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Víctor Poblete
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
