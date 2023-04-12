@@ -13,14 +13,14 @@ Sistema de $N$ partículas donde la partícula $i$-ésima tiene masa $m_i$.
 + > Como se observa en la figura, resulta casi imposible describir con claridad cómo se mueve cada una de las partículas.
 
 ```{note}
-Entonces para dicho sistema, ¿cómo podemos aplicar nuestro conocimiento acerca de fuerzas, momentos, energía cinética y potencial, y cantidades que se conservadn?.
+Entonces para dicho sistema, ¿cómo podemos aplicar nuestro conocimiento acerca de fuerzas, momentos, energía cinética y potencial, y cantidades que se conservan?.
 ```
 
 + > `Centro de Masa:` Se dice que cuando el movimiento de un cuerpo flexible implica no sólo `traslación`, sino también `rotación`, o `vibración`, o todas simultáneamente, se debe modelar al cuerpo como si fuese un `sistema de partículas`.
 
 + > A pesar de lo complejo que pueda resultar todo ese movimiento del sistema, existe un único punto, llamado `Centro de Masa` ($C$), cuyo movimiento de traslación es una característica del sistema como un todo.
 
-+ > Supongamos que tenemos un sistema de solamente dos partículas: $m_1$ y $m_1$ que se mueven en el espacio, con coordenadas $(x_1, y_1, z_1 )$, y $(x_2, y_2, z_2)$. 
++ > Supongamos que tenemos un sistema de solamente dos partículas: $m_1$ y $m_2$ que se mueven en el espacio, con coordenadas $(x_1, y_1, z_1 )$, y $(x_2, y_2, z_2)$. 
 
 + > Definamos sus vectores de posición como $\vec{r_1}$ y $\vec{r_2}$.
 
