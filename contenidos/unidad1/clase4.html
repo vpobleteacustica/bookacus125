@@ -1,0 +1,862 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="es" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Dinámica de sistema de cuerpo rígido &#8212; ACUS 125 Apuntes de clases.</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contenidos/unidad1/clase4';</script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="prev" title="3. Fuerzas sobre el sistema de \(N\) partículas" href="clase3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Libro de clases: ACUS 125 Aislamiento y Análisis de Vibraciones.
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vibraciones en sistemas de un grado de libertad.</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="clase1.html">1. Conceptos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clase2.html">2. Dinámica de sistemas de partículas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clase3.html">3. Fuerzas sobre el sistema de <span class="math notranslate nohighlight">\(N\)</span> partículas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Dinámica de sistema de cuerpo rígido</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/contenidos/unidad1/clase4.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dinámica de sistema de cuerpo rígido</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dinamica-de-sistema-de-cuerpo-rigido">
+<h1><span class="section-number">4. </span>Dinámica de sistema de cuerpo rígido<a class="headerlink" href="#dinamica-de-sistema-de-cuerpo-rigido" title="Permalink to this heading">#</a></h1>
+<ul>
+<li><blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Cuerpo</span> <span class="pre">Rígido:</span></code> Se caracteriza porque tiene una masa que se distribuye de manera continua a lo largo del cuerpo.</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Densidad</span> <span class="pre">de</span> <span class="pre">Masa:</span></code> Se define <span class="math notranslate nohighlight">\(\rho(x,y,z)\)</span> como una función de densidad de masa que representa una masa por unidad de volumen.</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Elemento</span> <span class="pre">Diferencial</span> <span class="pre">de</span> <span class="pre">Masa:</span></code> En el caso de un cuerpo rígido, vamos a reemplazar <span class="math notranslate nohighlight">\(m_{i}\)</span> por: <span class="math notranslate nohighlight">\({dm}\,(x,y,z)\)</span>.</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Traslación:</span></code> Por analogía con un sistema de partículas:</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\bf{F}}&amp;=\,\sum_{i=1}^{N}m_{i}\,{\bf{\ddot{r}}}_{i}\,=\sum_{i=1}^{N}m_{i}\,{\bf{a}}_{i}\quad\quad {\text{i=1,2,}}\ldots{\text{N}}
+\end{align*}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Para un cuerpo rígido, la fuerza resultante <span class="math notranslate nohighlight">\({\bf{F}}(t)\)</span> será igual a:</p>
+</div>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\bf{F}}(t)&amp;=\,\int_{{\text{cuerpo}}}^{}{\bf{a}}(x,y,z,t)\,{dm}\,(x,y,z)
+\label{eq39}\tag{39}
+\end{align*}
+\]</div>
+<ul>
+<li><blockquote>
+<div><p>Con <span class="math notranslate nohighlight">\({\bf{a}}(x,y,z,t)\)</span> el vector de aceleración en un punto sobre el cuerpo rígido y <span class="math notranslate nohighlight">\({dm}\,(x,y,z)=\rho(x,y,z)\,dV\)</span>, siendo <span class="math notranslate nohighlight">\(V\)</span> un elemento diferencial de volumen.</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>En <code class="docutils literal notranslate"><span class="pre">traslación</span> <span class="pre">pura</span></code>, se cumple que para todos los puntos del sistema de cuerpo rígido, la aceleración es la misma, es decir, <span class="math notranslate nohighlight">\({\bf{a}}(x,y,z,t)={\bf{a}}(t)\)</span>. Por lo que la ecuación de movimiento del sistema quedará:</p>
+</div>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\bf{F}}(t)&amp;=\,{\bf{a}}(t)\,\int_{{\text{cuerpo}}}^{}{dm}\,(x,y,z)
+\label{eq40}\tag{40}
+\end{align*}
+\]</div>
+<ul>
+<li><blockquote>
+<div><p>Además, la masa total del sistema de cuerpo rígido es:</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\int_{{\text{cuerpo}}}^{}{dm}\,(x,y,z)&amp;=m
+\label{eq41}\tag{41}
+\end{align*}
+\]</div>
+<ul>
+<li><blockquote>
+<div><p>Así, la ecuación diferencial de movimiento queda expresada como:</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\bf{F}}(t)&amp;=\,m\,{\bf{a}}(t)
+\label{eq42}\tag{42}
+\end{align*}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Como ejercicio, obtener las ecuaciones de movimiento para el siguiente sistema de cuerpo rígido en traslación horizontal.</p>
+</div>
+<ul>
+<li><blockquote>
+<div><p><img alt="Figura Señal2" src="../../_images/ej1.png" /></p>
+</div></blockquote>
+</li>
+</ul>
+<p>Las reacciones horizontales en los puntos de contacto <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>, como se muestra en el dibujo, son proporcionales a las reacciones verticales en esos puntos, siendo la constante de proporcionalidad es el coeficiente de fricción <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<ul>
+<li><blockquote>
+<div><p>Diagrama de cuerpo libre:</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p><img alt="Figura Señal2" src="../../_images/ej2.png" /></p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p>Usar los valores: <span class="math notranslate nohighlight">\(\beta = 30^{\text{o}}\)</span>; <span class="math notranslate nohighlight">\(\mu = 0.5\)</span>; <span class="math notranslate nohighlight">\(\text{H}=0.6\,{\text{L}}\)</span>; y <span class="math notranslate nohighlight">\(\text{D}=0.1\,{\text{L}}\)</span>, y determinar la magnitud de la fuerza, <span class="math notranslate nohighlight">\(\text{F}\)</span>, como una fracción del peso, <span class="math notranslate nohighlight">\(\text{m}{\text{g}}\)</span>, cuando el cuerpo está a punto de volcar (pero no se vuelca!), al igual que la aceleración del cuerpo como una fracción de <span class="math notranslate nohighlight">\(\text{g}\)</span>.</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p>Al desarrollar el ejercicio, se observa lo siguiente:</p>
+</div></blockquote>
+</li>
+</ul>
+<ul class="simple">
+<li><p>El problema es bidimensional, todo ocurre en el plano-xy.</p>
+<ul>
+<li><p>Por lo cual, las ecuaciones de fuerza tienen solamente dos componentes escalares: <span class="math notranslate nohighlight">\(\text{F}_{x}=\text{m}\text{a}_{x}\)</span> y <span class="math notranslate nohighlight">\(\text{F}_{y}=\text{m}\text{a}_{y}\)</span></p></li>
+</ul>
+</li>
+<li><p>El cuerpo en traslación horizontal solamente tiene aceleración en dirección <span class="math notranslate nohighlight">\(\text{x}\)</span>.</p></li>
+<li><p>En el instante de casi volcar, en el punto de contacto <span class="math notranslate nohighlight">\(\text{A}\)</span>, la reacción normal, <span class="math notranslate nohighlight">\(\text{N}_{\text{A}}=0\)</span>.</p></li>
+<li><p>En el DCL, se representan las siguientes fuerzas:</p>
+<ul>
+<li><p>La fuerza aplicada en la esquina superior izquierda <span class="math notranslate nohighlight">\({\text{F}}\)</span>.</p></li>
+<li><p>El peso que apunta verticalmente hacia abajo y pasa por el centro de masa.</p></li>
+<li><p>La fuerza normal <span class="math notranslate nohighlight">\(\text{N}_{\text{B}}\)</span> en el punto de contacto <span class="math notranslate nohighlight">\(\text{B}\)</span>.</p></li>
+<li><p>La fuerza de fricción <span class="math notranslate nohighlight">\({\text{F}_{\text{B}}}\)</span> en el punto de contacto <span class="math notranslate nohighlight">\(\text{B}\)</span></p></li>
+</ul>
+</li>
+</ul>
+<!---
++ > Nuestras `variables lineales` han sido:
+
+> * Posición: ${\bf{\text{r}}}(t)$
+> * Velocidad: ${\bf{\dot{r}}}(t)$
+> * Aceleración: ${\bf{\ddot{r}}}(t)$
+
++ > Y nuestra variables `rotacionales` han sido:
+
+* Desplazamiento angular:
+    + $\theta (t)$
+* Velocidad angular:
+    + $\omega (t) = \dot{\theta} (t)$
+* Aceleración angular:    
+    + $\alpha (t) = \dot{\omega}(t) = \ddot{\theta}(t)$
+
++ > Para derivar las ecuaciones de movimiento de un sistema de $N$, se deben distinguir dos tipos de fuerzas que actúan sobre el sistema:
+
++ >> Las `Fuerzas Externas:` ${\bf{\text{F}}}_{i}$
++ >> Y las `Fuerzas Internas:` estas surgen por la interacción entre las partículas: ${\bf{f}}_{ij}$, que representa la fuerza ejercida por la masa $m_j$ sobre la masa $m_i$ ($i,j=1,2,\ldots, N; j\ne i$). 
+
++ > ![Figura Señal2](fext_int.png)
+
++ > La ecuación de movimiento para la partícula $m_i$, se obtiene usando la segunda Ley de Newton:
+
+$$
+\begin{align*}
+{\bf{\text{F}}}_{i}+\sum_{j=1}^{N}{\bf{f}}_{ji}&=m_{i}\,{\bf{\ddot{r}}}_{i},\quad\quad {\text{i=1,2,}}\ldots{\text{N}} 
+\label{eq26}\tag{26}
+\end{align*}
+$$
+
++ > Y la ecuación de movimiento ahora para el sistema total de N partículas, será:
+
+$$
+\begin{align*}
+\sum_{i=1}^{N}{\bf{\text{F}}}_{i}+\sum_{i=1}^{N}\sum_{j=1}^{N}{\bf{f}}_{ji}&=\,\sum_{i=1}^{N}m_{i}\,{\bf{\ddot{r}}}_{i},\quad\quad {\text{i=1,2,}}\ldots{\text{N}}
+\label{eq27}\tag{27}
+\end{align*}
+$$
+
++ > Sin embargo, por la Tercera Ley de Newton, las fuerzas internas se cancelan en pares: ${\bf{f}}_{ji}+{\bf{f}}_{ij} = {\bf{0}}$
+
++ > Si llamamos ahora ${\bf{F}}$ a la `fuerza resultante` debido a todas las fuerzas externas, entonces
+
+$$
+\begin{align*}
+{\bf{F}}&=\sum_{i=1}^{N}{\bf{\text{F}}}_{ext^{i}} 
+\label{eq28}\tag{28}
+\end{align*}
+$$
+
++ > La ecuación de movimiento para el sistema de $N$ partículas queda de la forma:
+
+$$
+\begin{align*}
+{\bf{F}}&=\,\sum_{i=1}^{N}m_{i}\,{\bf{\ddot{r}}}_{i},\quad\quad {\text{i=1,2,}}\ldots{\text{N}}
+\label{eq29}\tag{29}
+\end{align*}
+$$
+
++ > A continuación, se define el `momentum angular del sistema de partículas` con respecto al punto $0$:
+
+$$
+\begin{align*}
+{\bf{H}}_{0}&=\,\sum_{i=1}^{N}{\bf{r}}_{i}\times {\bf{p}}\\
+&=\,\sum_{i=1}^{N}{\bf{r}}_{i}\times m_{i}{\bf{\dot{r}}}_{i}
+\label{eq30}\tag{30}
+\end{align*}
+$$
+
++ > Derivando con respecto al tiempo:
+
+$$
+\begin{align*}
+{\bf{\dot{H}}}_{0}&=\,\sum_{i=1}^{N}\bigg({\bf{\dot{r}}}_{i}\times m_{i}{\bf{\dot{r}}}_{i}+{\bf{r}}_{i}\times m_{i}{\bf{\ddot{r}}}_{i}\bigg)\\
+&=\,\sum_{i=1}^{N}{\bf{r}}_{i}\times m_{i}{\bf{\ddot{r}}}_{i}\\
+&=\,\sum_{i=1}^{N}{\bf{r}}_{i}\times {\bf{F}}_i
+\label{eq31}\tag{31}
+\end{align*}
+$$
+
++ > Llamando a ${\bf{M}}_{0}$ al momento de todas las fuerzas externas en torno a $0$:
+
+$$
+\begin{align*}
+{\bf{M}}_{0}&=\,\sum_{i=1}^{N}{\bf{r}}_{i}\times {\bf{F}}_i
+\label{eq32}\tag{32}
+\end{align*}
+$$
+
++ > Se encuentra la misma relación ya conocida: ${\bf{\dot{H}}}_{0}={\bf{M}}_{0}.$
+
++ > Eso quiere decir que la resultante de todos los momentos en torno al punto fijo $0$, que actuán sobre el sistema de partículas, es igual a la tasa de cambio temporal del momento de momentum en torno a $0$ del todo el sistema.  
+
++ > Si ahora, se considera el `centro de masa` podemos escribir la fuerza resultante como:
+
+$$
+\begin{align*}
+{\bf{F}}&=\sum_{i=1}^{N}m_{i}{\bf{\ddot{r}}}_{i}=\sum_{i=1}^{N}m_{i}\bigg({\bf{\ddot{\text{r}}}}_{C}+{\bf{\ddot{\text{r}}}}_{i}^{'}\bigg)\\
+&=m\,{\bf{\ddot{\text{r}}}}_{C}+\sum_{i=1}^{N}m_{i}\,{\bf{\ddot{\text{r}}}}_{i}^{'}
+\label{eq33}\tag{33}
+\end{align*}
+$$
+
++ > Pero sabemos que al trasladar el origen $0$ al `centro de masa`, se cumplirá que:
+
+$$
+\begin{align}
+\sum_{i=1}^{N}m_{i}\,{\bf{\text{r}}}_{i}^{'}&=0
+\label{eq34}\tag{34}
+\end{align}
+$$
+
++ > En efecto, se puede demostrar para $N$ partículas:
+
+$$
+\begin{align}
+{\bf{\text{r}}}_{C}&=\frac{1}{m}\,\sum_{i=1}^{N}m_{i}{\bf{\text{r}_{i}}}\\
+&=\frac{1}{m}\,\sum_{i=1}^{N}m_{i}\,({\bf{\text{r}}}_{C}+{\bf{\text{r}}}_{i}^{'})\\
+&=\frac{1}{m}\bigg[ \sum_{i=1}^{N}m_{i}\,{\bf{\text{r}}}_{C} + \sum_{i=1}^{N}m_{i}\,{\bf{\text{r}}}_{i}^{'} \bigg]\\
+&= {\bf{\text{r}}}_{C}+\frac{1}{m}\sum_{i=1}^{N}m_{i}\,{\bf{\text{r}}}_{i}^{'}
+\end{align}
+$$
+
++ > Lo que quiere decir que un centro de masa podría ser definido como aquel punto en el cual se cumple la Ec. ({eq}`34`).
+
++ > Así que, la fuerza resultante será:
+
+$$
+\begin{align*}
+{\bf{F}}&=m\,{\bf{\ddot{\text{r}}}}_{C}
+\label{eq35}\tag{35}
+\end{align*}
+$$
+
+```{note}
+Hemos demostrado que el movimiento de un sistema de $N$ partículas, bajo la acción de una fuerza resultante ${\bf{F}}$, equivalente a un movimiento de `un solo cuerpo` de masa total $m$, cuya aceleración es aquella del centro de masa ${\bf{\ddot{\text{r}}}}_{C}.$
+```
+
++ > Momentum angular con respecto al centro de masa, se define como:
+
+$$
+\begin{align*}
+{\bf{H}}_{C}&=\,\sum_{i=1}^{N}{\bf{r}}_{i}^{'}\times m_{i}{\bf{\dot{r}}}_{i}^{'}
+\end{align*}
+\label{eq36}\tag{36}
+$$
+
++ > Y se puede comprobar que (no se demostrará) que:
+
+$$
+\begin{align*}
+{\bf{\dot{H}}}_{C}&={\bf{M}}_{C}
+\label{eq37}\tag{37}
+\end{align*}
+$$
+
++ > Donde se ha usado:
+
+$$
+\begin{align*}
+{\bf{M}}_{C}&=\,\sum_{i=1}^{N}{\bf{r}}_{i}^{'}\times m_{i}{\bf{F}}_{i}
+\label{eq38}\tag{38}
+\end{align*}
+$$
+
+
+$$
+\begin{align*}
+{\bf{\text{F}}}_{i}+\sum_{j=1}^{N}{\bf{f}}_{ji}&=m_{i}\,{\bf{\ddot{r}}}_{i},\quad\quad {\text{i=1,2,}}\ldots{\text{N}} 
+\label{eq27}\tag{27}
+\end{align*}
+$$
+
++ > Las `Leyes de Newton` se formularon para analizar la dinámica de una sola partícula. Sin embargo, en vibraciones el interés es comprender cuerpos flexibles y que además, ellos pueden oscilar.
+
++ > `Sistema de partículas`: Vamos a considerar un sistema que consta de $N$ partículas. 
+
++ > ![Figura Señal2](n_particulas.png)
+
+```{note}
+Sistema de $N$ partículas donde la partícula $i$-ésima tiene masa $m_i$.
+```
+
++ > Como se observa en la figura, resulta casi imposible describir con claridad cómo se mueve cada una de las partículas.
+
+```{note}
+Entonces para dicho sistema, ¿cómo podemos aplicar nuestro conocimiento acerca de fuerzas, momentos, energía cinética y potencial, y cantidades que se conservan?.
+```
+
++ > `Centro de Masa:` Se dice que cuando el movimiento de un cuerpo flexible implica no sólo `traslación`, sino también `rotación`, o `vibración`, o todas simultáneamente, se debe modelar al cuerpo como si fuese un `sistema de partículas`.
+
++ > A pesar de lo complejo que pueda resultar todo ese movimiento del sistema, existe un único punto, llamado `Centro de Masa` ($C$), cuyo movimiento de traslación es una característica del sistema como un todo.
+
++ > Supongamos que tenemos un sistema de solamente dos partículas: $m_1$ y $m_2$ que se mueven en el espacio, con coordenadas $(x_1, y_1, z_1 )$, y $(x_2, y_2, z_2)$. 
+
++ > Definamos sus vectores de posición como $\vec{r_1}$ y $\vec{r_2}$.
+
++ > ![Figura CM](C.png)
+
++ > El centro de masa, $C$, de este sistema se encuentra en algún lugar a lo largo de la línea recta que une las dos masas, con coordenadas $(x_C, y_C, z_C )$. Definimos el vector de posición de $C$ como:
+
+$$
+\begin{align*}
+\vec{r_C}&= \frac{m_1\cdot \vec{r_1} \,+ \,m_2\cdot \vec{r_2}}{m_1\,+\,m_2} 
+\label{eq20}\tag{20}
+\end{align*}
+$$
+
++ > Las componentes $x$, $y$ y $z$, del centro de masa son:
+
+$$
+\begin{align*}
+x_C &= \frac{m_1\cdot x_1 \,+ \,m_2\cdot x_2}{m_1\,+\,m_2} 
+\label{eq21}\tag{21}
+\end{align*}
+$$
+
+$$
+\begin{align*}
+y_C &= \frac{m_1\cdot y_1 \,+ \,m_2\cdot y_2}{m_1\,+\,m_2} 
+\label{eq22}\tag{22}
+\end{align*}
+$$
+
+$$
+\begin{align*}
+z_C &= \frac{m_1\cdot z_1 \,+ \,m_2\cdot z_2}{m_1\,+\,m_2} 
+\label{eq23}\tag{23}
+\end{align*}
+$$
+
+## Posición del centro de masa en 1 dimensión para un sistema de dos partículas.
+
++ > Supongamos un sistema de dos partículas y que conocemos además, sus masas: $m_1=m$ y $m_2=m$.
+
++ > Las masas se ubican en los puntos $x_1$ y $x_2$ del eje $x$, como se muestra en la figura:
+
++ > ![Figura CM](2dC.png)
+
++ > Si la distancia entre las dos partículas la llamamos $D = x_2 - x_1$, y considerando que $y_i=z_i=0,\quad i = 1,2$, tenemos que $y_C =z_C = 0$. 
+
++ > En consecuencia, la posición del centro de masa en la dimensión $x$ es:
+
+$$
+\begin{align*}
+x_C &= \frac{m_1\cdot x_1 \,+ \,m_2\cdot x_2}{m_1\,+\,m_2}\\
+    &= \frac{m\cdot x_1 \,+ \,m\cdot x_2}{2m}\\
+    &= \frac{x_1 \,+ \,x_2}{2}
+\label{eq24}\tag{24}
+\end{align*}
+$$
+
++ > Pero, usando $x_2= D + x_1$, nos queda: 
+
+$$
+\begin{align*}
+x_C &= \frac{2x_1 \,+ \,D}{2}\\
+    &= x_1 \,+ \, \frac{D}{2}
+\label{eq25}\tag{25}
+\end{align*}
+$$
+
+```{note}
+Como demuestra el ejemplo, la posición del centro de masa no coincide necesariamente con la posición de una partícula del sistema.
+```
+
++ > Analizar qué sucede con $x_C$, cuando el origen $0$ del sistema se ubica donde está la partícula $m_1$.
+
++ > Analizar además, qué ocurre con $x_C$ si la masa de la partícula $m_2$ es igual a $2m$.
+
++ > Si en este último caso, el origen $0$ del sistema se traslada al centro de masa (es decir, quedando como $0'$), y desde ahí, se miden las distancias a cada una de las masas y se ponderan esas distancias por sus masas respectivas, y luego se suma, entonces qué resultará? Analizar y comentar este resultado.
+
+## Posición del centro de masa en 2 dimensiones para un sistema de tres partículas.
+
++ > En el siguiente ejemplo, se pide encontrar el centro de masa de un sistema de 3 partículas que tienen cada una, masa $m$ = 1 kg.
+
++ > ![Figura CM](3masas.png)
+
+## Posición del centro de masa en 3 dimensiones para un sistema de tres partículas.
+
+En el siguiente ejemplo se debe encontrar el centro de masa de un sistema en 3 dimensiones que consta de tres partículas. Las partículas tienen masas $m_1$ = 0,5 ($kg$), $m_2$ = 2 ($kg$) y $m_3$ = 5 ($kg$). Sus posiciones en el espacio son $P_1$(−3,1,2) ($m$), $P_2$(0,1,2) ($m$) y $P_3$(−1,3,0) ($m$), respectivamente.
+
++ > <img src="3D3masas.png" alt= “” width="350" height="300">
+
+## Posición del centro de masa en 3 dimensiones para un sistema de 8 partículas.
+
++ > Es más fácil dividir la ecuación vectorial del vector de posición del centro de masa en sus componentes como se ve en las Ecs. ({eq}`21`)-({eq}`23`) y luego, por separado, evaluar cada una de las componentes. Encontrar el centro de masa del siguiente sistema de ocho partículas,  ubicadas en las esquinas de un cubo, todas de igual masa $m$ ($kg$) y separadas una distancia $L$ ($m$), como se muestra en la figura siguiente:
+
++ > <img src="8m.png" alt= “” width="350" height="300">
+
+
+<!---
+http://www.phys.nthu.edu.tw/~thschang/notes/GP10.pdf
+
+https://repository.kaust.edu.sa/bitstream/handle/10754/666903/system%20of%20particles.pdf?sequence=1&isAllowed=y
+
+https://repository.kaust.edu.sa/bitstream/handle/10754/666903/system%20of%20particles.pdf?sequence=1&isAllowed=y
+
+$$
+\begin{align*}
+x&=\{x\,[\,n\,]\},\quad \quad -\infty < n < \infty 
+\label{eq1}\tag{1}
+\end{align*}
+$$
+
+<img src="n_particulas.png" alt= “” width="600" height="500">
+
++ > ![Figura CM](3D3masas.png)
+
+```{note}
+Como demuestra el ejemplo, la posición del centro de masa no coincide necesariamente con la posición de una partícula del sistema.
+```
+
+
+## Learn more
+
+This is just a simple starter to get you started.
+You can learn a lot more at [jupyterbook.org](https://jupyterbook.org).
+-->
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./contenidos/unidad1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="clase3.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Fuerzas sobre el sistema de <span class="math notranslate nohighlight">\(N\)</span> partículas</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Víctor Poblete Ramírez, Rafael Peñailillo Hayde.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
