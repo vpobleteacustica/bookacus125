@@ -1,5 +1,230 @@
-# Dinámica de sistema de cuerpo rígido
+# Traslación y rotación al mismo tiempo.
 
++ > Analizaremos a continuación un movimiento general plano, de traslación y rotación al mismo instante, con respecto al `centro de masa`.
+
+> + En este caso, se comienza desde la `ecuación de fuerza`:
+
+$$
+\begin{align*}
+{\bf{F}}&=m\,{\bf{\ddot{\text{r}}}}_{C}
+\end{align*}
+$$
+
+> + Además, se usará la relación:
+
+$$
+\begin{align*}
+{\bf{M}}_{\text{C}}&={\bf{\dot{H}}}_{\text{C}}
+\end{align*}
+$$
+
++ > > + Y, por tratarse de un movimiento general planar:
+
+$$
+\begin{align*}
+{\bf{M}}_{\text{C}}&={\text{M}}_{\text{C}}\,\hat{k}
+\end{align*}
+$$
+
+> + Por analogía con un sistema de cuerpo rígido, usaremos el momentum angular con respecto al punto centro de masa ${\text{C}}$:
+
+$$
+\begin{align*}
+{\bf{H}}_{\text{C}}&={\text{I}}_{\text{C}}\,\omega\, \hat{k}
+\end{align*}
+$$
+
++ >> donde ${\text{I}}_{\text{C}}$ es el momento de inercia del cuerpo rígido con respecto al centro de masa. Por lo tanto, ya que es un movimiento planar,
+
+$$
+\begin{align*}
+{\text{F}}_{\text{x}}&={\text{m}}\,{\text{a}}\,_{\text{c}_{x}}
+\end{align*}
+$$
+
+$$
+\begin{align*}
+{\text{F}}_{\text{y}}&={\text{m}}\,{\text{a}}\,_{\text{c}_{y}}
+\end{align*}
+$$
+
+$$
+\begin{align*}
+{\text{M}}_{\text{C}}&={\text{I}}_{\text{C}}\,\alpha
+\end{align*}
+$$
+
++ >> donde $\alpha$ es la aceleración angular del cuerpo.
+
+```{note}
+El siguiente problema queda propuesto para desarrollar en equipos: 
+``` 
+> + Una barra rígida, uniforme, de masa total ${\text{m}}$ y longitud ${\text{L}_{\text{2}}}$, está suspendida en el punto ${\text{0}}$ por una cuerda de longitud ${\text{L}_{\text{1}}}$. Sobre la barra actúa una fuerza horizontal ${\text{F}}$ como se muestra en la siguiente figura:
+
++ > ![Figura Señal2](barra.jpg)
+
+> + Usar los desplazamientos angulares $\theta_{\text{1}}$ y $\theta_{\text{2}}$ para definir la posición, velocidad y aceleración del centro de masa $\text{C}$, en términos de los ejes del cuerpo $\hat{r}_{2}$ y $\hat{\theta}_{2}$
+
+<!---
+
+> + El movimiento se describe por la ecuación de `Momento de la Fuerza:`.
+> + Si se recuerda, para el caso de un `Sistema de N Partículas`, la ecuación de momento de la fuerza en torno a un punto fijo ${\text{0}}$:
+
+$$
+\begin{align*}
+{\bf{M}}_{\text{0}}&=\,\sum_{i=1}^{N}{\bf{r}}_{i}\times {\bf{F}}_{i}
+\end{align*}
+$$
+
+> + Ahora, para el sistema `cuerpo rígido`, la ecuación de Momento de la Fuerza o Torque, resultante alrededor del punto fijo ${\text{0}}$ será: 
+
+$$
+\begin{align*}
+{\bf{M}}_{\text{0}}&=\int_{{\text{cuerpo}}}^{}{\bf{r}}\times \text{d}{\bf{{\text{F}}}}
+\label{eq48}\tag{48}
+\end{align*}
+$$
+
+> + También, si recordamos, vimos que para el mismo `Sistema de N Partículas`, el momentum angular del cuerpo en torno al punto fijo ${\text{0}}$ es: 
+
+$$
+\begin{align*}
+{\bf{H}}_{\text{0}}&=\,\sum_{i=1}^{N}{\bf{r}}_{i}\times m_{i}{\bf{\dot{r}}}_{i}
+\end{align*}
+$$
+
+> + Esta vez, en el caso de un sistema de cuerpo rígido:
+
+$$
+\begin{align*}
+{\bf{H}}_{\text{0}}&=\int_{{\text{cuerpo}}}^{}{\bf{r}}\times {\bf{{\text{v}}}}\, \text{dm}
+\label{eq49}\tag{49}
+\end{align*}
+$$
+
+> + Pero, en el caso de `rotación pura en un plano`, anteriormente ya vimos que la velocidad tiene solamente una componente en dirección angular $\hat{\theta}$:
+
+$$
+\begin{align*}
+{\bf{{\text{v}}}}&=r\,\dot{\theta}\,\hat{\theta}=r\,\omega\,\hat{\theta}
+\end{align*}
+$$
+
+> + Reemplazando:
+
+$$
+\begin{align*}
+{\bf{H}}_{\text{0}}&=\int_{{\text{cuerpo}}}^{}r\,\hat{r}\,\times\,r\,\omega\,\hat{\theta}\,\,\text{dm}= \Bigg(\int_{{\text{cuerpo}}}^{} r^{2}\,\text{dm} \Bigg)\,\omega\, \hat{k}\,=\,{\text{I}}_{\text{0}}\,\omega\, \hat{k}
+\end{align*}
+$$
+
++ >> donde:
+
+$$
+\begin{align*}
+{\text{I}}_{\text{0}}&=\int_{{\text{cuerpo}}}^{} r^{2}\,\text{dm}
+\end{align*}
+$$
+
++ >> Se llama el `Momento de Inercia del Cuerpo Rígido` en torno al punto fijo ${\text{0}}.$ Por lo tanto, para movimiento planar, el momentum angular solamente tiene una componente: 
+
+$$
+\begin{align*}
+{\bf{H}}_{\text{0}}&={\text{I}}_{\text{0}}\,\omega\, \hat{k}
+\end{align*}
+$$
+
+> + Si se deriva con respecto al tiempo:
+
+$$
+\begin{align*}
+{\bf{\dot{H}}}_{\text{0}}&={\text{I}}_{\text{0}}\,{\dot{\omega}}\, \hat{k}={\text{I}}_{\text{0}}\,{\alpha}\, \hat{k}
+\end{align*}
+$$
+
++ >> con $\alpha$ la **aceleración angular del cuerpo**. Pero, dado que se cumple la relación:
+
+$$
+\begin{align*}
+{\bf{\dot{H}}}_{\text{0}}&={\bf{M}}_{\text{0}}
+\end{align*}
+$$
+
++ >> entonces, el momento de la fuerza será:
+
+$$
+\begin{align*}
+{\bf{M}}_{\text{0}}&={\text{I}}_{\text{0}}\,{\alpha}\, \hat{k}
+\end{align*}
+$$
+
+```{note}
+Como ejercicio, vamos a analizar el movimiento de un péndulo compuesto.
+```
+
++ > Un `Cuerpo Rígido` suspendido desde un punto distinto al centro de masa y libre de oscilar, se conoce como `Péndulo Compuesto`. 
+
++ > Vamos a suponer que tenemos el siguiente péndulo compuesto, consistente de una barra uniforme de masa total ${\text{m}}$ que cuelga en un punto ${\text{0}}$ a una distancia $\frac{{\text{L}}}{6}$ del centro de masa ${\text{C}}$. 
++ > Si el péndulo se libera desde el reposo, en la posición horizontal, se nos pide determinar la aceleración angular $\alpha$ del péndulo inmediatamente después de liberarse.
+
++ > ![Figura Señal2](compuesto.png)
+
+```{note}
+Desarrollo: 
+```
+
+> + Aquí, se aplica la relación: $\text{M}_{\text{0}}={\text{I}}_{\text{0}}\,{\alpha}$. Para obtener $\text{M}_{\text{0}}$ se deduce de la siguiente figura, que: 
+
++ > ![Figura Señal2](convencion2.png)
+
+$$
+\begin{align*}
+\text{M}_{\text{0}}&=-\,{\text{mg}}\,\frac{\text{L}}{6}
+\end{align*}
+$$
+
+> + Luego, se calcula el momento de inercia de la barra:
+
+$$
+\begin{align*}
+{\text{I}}_{\text{0}}&=\int_{{\text{cuerpo}}}^{} x^{2}\,\text{dm}
+\end{align*}
+$$
+
++ > donde
+
+$$
+\begin{align*}
+\text{dm}&=\rho\, \text{dx}=\frac{m}{L}\, \text{dx}
+\end{align*}
+$$
+
+> + Por lo que se obtiene:
+
+$$
+\begin{align*}
+{\text{I}}_{\text{0}}&=\frac{\text{m}}{L}\,\int_{-\frac{L}{3}}^{\frac{2L}{3}} x^{2}\,\text{dx}\\
+&= \frac{\text{m}\,\text{L}^{2}}{9}
+\end{align*}
+$$
+
+> + Por lo tanto, la aceleración angular $\alpha$ está dado por:
+
+$$
+\begin{align*}
+\alpha&=\frac{\text{M}_{\text{0}}}{{\text{I}}_{\text{0}}}=-\frac{3\,{\text{g}}}{2\,{\text{L}}}
+\end{align*}
+$$
+
+> + El signo menos indica que la aceleración angular sigue el sentido de las manecillas del reloj, esto es, va en el sentido contrario al señalado en la figura original.
+
+
+```{note}
+Problema propuesto para desarrollar en equipos: 
+```
+
+
+<!---
 + > `Cuerpo Rígido:` Se caracteriza porque tiene una masa que se distribuye de manera continua a lo largo del cuerpo.
 
 + > `Densidad de Masa:` Se define $\rho(x,y,z)$ como una función de densidad de masa que representa una masa por unidad de volumen.
@@ -59,252 +284,6 @@ $$
 ```{note}
 Como ejercicio, obtener las ecuaciones de movimiento para el siguiente sistema de cuerpo rígido en traslación horizontal.
 ```
-> + Las reacciones horizontales en los puntos de contacto A y B, como se muestra en el dibujo de la figura, son proporcionales a las reacciones verticales en esos puntos, siendo la constante de proporcionalidad el coeficiente de fricción $\mu$.
-> + Usar los valores: $\beta = 30^{\text{o}}$; $\mu = 0.5$; $\text{H}=0.6\,{\text{L}}$; y $\text{D}=0.1\,{\text{L}}$, y determinar la magnitud de la fuerza, $\text{F}$, como una fracción del peso, $\text{m}{\text{g}}$, cuando el cuerpo está a punto de volcar (**pero no se vuelca!**), al igual que la aceleración del cuerpo como una fracción de $\text{g}$. 
-
-+ > ![Figura Señal2](Fig1.png)
-
-```{note}
-Desarrollo: 
-```
-
-> + Este es un problema de tipo bidimensional, todo ocurre en el plano-xy.
-> + Las ecuaciones de fuerza tienen solamente dos componentes escalares: $\text{F}_{x}=\text{m}\text{a}_{x}$ y $\text{F}_{y}=\text{m}\text{a}_{y}$.
-> + Este es un caso de un cuerpo en traslación pura.
-> + La traslación es horizontal por lo que solamente hay **aceleración en la dirección** $\text{x}$.
-> + En el instante de **casi volcar, pero NO vuelca**, en el punto de contacto $\text{A}$, la reacción normal, $\text{N}_{\text{A}}=0$.
-> + En el DCL (Figura 2), se representan las siguientes fuerzas:   
-    > + La fuerza aplicada en la esquina superior izquierda ${\text{F}}$.
-    > + El peso que apunta verticalmente hacia abajo y pasa por el centro de masa.
-    > + La fuerza normal $\text{N}_{\text{B}}$ en el punto de contacto $\text{B}$.
-    > + La fuerza de fricción ${\text{F}_{\text{B}}}$ en el punto de contacto $\text{B}$
-> + Las ecuaciones de fuerza son:
-
-$$
-\begin{align*}
-{\text{F}_{\text{x}}}&={\text{F}}\,{\text{cos}}\,\beta\,-\mu\,{\text{N}}_{\text{B}}={\text{m}}
-\label{eq43}\tag{43}
-{\text{a}}_{\text{x}}\\
-{\text{F}_{\text{y}}}&={\text{F}}\,{\text{sen}}\,\beta\,+{\text{N}}_{\text{B}}\,-{\text{mg}}=0
-\label{eq44}\tag{44}
-\end{align*}
-$$
-
-> + Se tienen tres incógnitas: ${\text{F}},$ ${\text{N}}_{\text{B}}$ y ${\text{a}}_{\text{x}}$, pero `sólo dos ecuaciones`. 
-> + Se usa, por lo tanto, como tercera ecuación el momento de la fuerza en torno al centro de masa $\text{c}$. 
-> + Como el cuerpo está en traslación pura en dirección ${\text{x}}$ y no sufre rotaciones, entonces la magnitud del momento de la fuerza en torno a $\text{c}$ debe ser igual a cero: ${\text{M}}_{\text{c}}=0$ 
-
-```{note}
-Magnitud, dirección y convención de signos del momento de la fuerza en torno a $\text{c}$: 
-```
-
-> + Recordar que el momento de la fuerza:
-
-$$
-\begin{align*}
-{\bf{M}} &={\bf{r}\times \bf{F}}
-\end{align*}
-$$
-
->> + puede ser re-escrito como: ${\bf{\text{r}}} \times {\bf{\text{F}}}=\lVert {\bf{\text{r}}} \rVert\,\lVert {\bf{\text{F}}} \rVert\,{\text{sen}}(\alpha)\,\hat{\text{n}}$
-
-> + Por lo cual, la magnitud del momento de la fuerza en torno a $\text{c}$, ${\text{M}}_{\text{c}}$, es igual a la distancia perpendicular medida desde $\text{c}$ a la línea de acción de la fuerza, multiplicada por la magnitud de la fuerza.
-
-> + La dirección del momento está dada por la regla de la mano derecha: 
-
->> + Si sale del papel, **tiene signo positivo**, los dedos de la mano apuntan en sentido contrario a las manecillas del reloj. 
-
->> + Mientras que, si se mete en la hoja, **tiene signo negativo**, los dedos de la mano apuntan en sentido de las manecillas del reloj:
-
-+ > ![Figura Señal2](Convencion.png)
-
-> + Primero, si se analiza por el lado superior izquierdo en sentido horizontal, como se muestra en la figura siguiente, se obtiene ${\text{M}}_{\text{c1}}$
-
-$$
-\begin{align*}
-{\text{M}}_{\text{c1}}&=-\,{\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}
-\end{align*}
-$$
-
-> + Segundo, si se observa el punto de contacto del lado derecho inferior en dirección horizontal, se obtiene ${\text{M}}_{\text{c2}}$ 
-
-$$
-\begin{align*}
-{\text{M}}_{\text{c2}}&=-\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+D\bigg)
-\end{align*}
-$$
-
-> + En sentido vertical, si se observa el punto de contacto en la esquina inferior derecha, hay una fuerza que resulta de dos componentes: $({\text{N}}_{\text{B}} - {\text{F}}\,{\text{sen}}\,\beta)$
-
-+ > ![Figura Señal2](Vertical.png)
-
-$$
-\begin{align*}
-{\text{M}}_{\text{C3}}&=({\text{N}}_{\text{B}} - {\text{F}}\,{\text{sen}}\,\beta)\cdot \frac{{\text{L}}}{2} 
-\end{align*}
-$$
-
-> + Por lo tanto, 
-
-$$
-\begin{align*}
-{\text{M}}_{\text{c}}&={\text{M}}_{\text{c1}}+{\text{M}}_{\text{c2}}+{\text{M}}_{\text{c3}}\\
-&=-\,{\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}-\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+D\bigg)+({\text{N}}_{\text{B}} - {\text{F}}\,{\text{sen}}\,\beta)\cdot \frac{{\text{L}}}{2} 
-\end{align*}
-$$
-
-> + En consecuencia, y debido a que no hay rotación, la tercera ecuación será ${\text{M}}_{\text{c}}=0$, es decir,
-
-$$
-\begin{align*}
--\,{\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}-\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+D\bigg)+({\text{N}}_{\text{B}} - {\text{F}}\,{\text{sen}}\,\beta)\cdot \frac{{\text{L}}}{2} &=0
-\end{align*}
-$$
-
-> + En resumen, obtenemos las siguientes tres ecuaciones de movimiento:
-
-$$
-\begin{align}
-{\text{F}_{\text{x}}}&={\text{F}}\,{\text{cos}}\,\beta\,-\mu\,{\text{N}}_{\text{B}}={\text{m}}{\text{a}}_{\text{x}}
-\label{eq45}\tag{45}
-\end{align}
-$$
-
-$$
-\begin{align}
-{\text{F}_{\text{y}}}&={\text{F}}\,{\text{sen}}\,\beta\,+{\text{N}}_{\text{B}}\,-{\text{mg}}=0
-\label{eq46}\tag{46}
-\end{align}
-$$
-
-$$
-\begin{align}
--\,{\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}-\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+{\text{D}}\bigg)+({\text{N}}_{\text{B}} - {\text{F}}\,{\text{sen}}\,\beta)\cdot \frac{{\text{L}}}{2} &=0
-\label{eq47}\tag{47}
-\end{align}
-$$
-
-> + De la Ec. (46) se despeja ${\text{N}_{\text{B}}}$
-
-$$
-\begin{align*}
-{\text{N}}_{\text{B}}&={\text{mg}}\,-\,{\text{F}}\,{\text{sen}}\,\beta
-\end{align*}
-$$
-
-> + La Ec. (47) se escribe como:
-
-$$
-\begin{align*}
-({\text{N}}_{\text{B}} - {\text{F}}\,{\text{sen}}\,\beta)\cdot \frac{{\text{L}}}{2} &={\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}\,+\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+{\text{D}}\bigg)
-\end{align*}
-$$
-
-$$
-\begin{align*}
-{\text{N}}_{\text{B}} \cdot \frac{{\text{L}}}{2} \,-\,{\text{F}}\,{\text{sen}}\,\beta\cdot \frac{{\text{L}}}{2}&={\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}\,+\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+{\text{D}}\bigg)
-\end{align*}
-$$
-
-$$
-\begin{align*}
-({\text{mg}}\,-\,{\text{F}}\,{\text{sen}}\,\beta) \cdot \frac{{\text{L}}}{2} \,-\,{\text{F}}\,{\text{sen}}\,\beta\cdot \frac{{\text{L}}}{2}&={\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}\,+\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+{\text{D}}\bigg)
-\end{align*}
-$$
-
-$$
-\begin{align*}
-{\text{mg}}\cdot \frac{{\text{L}}}{2} -{\text{F}}\,{\text{sen}}\,\beta \cdot {\text{L}} &={\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}\,+\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+{\text{D}}\bigg)
-\end{align*}
-$$
-
-> + Si se multiplica por $2$ a ambos lados:
-
-$$
-\begin{align*}
-{\text{mg}}\cdot {\text{L}} -\,2\,{\text{F}}\,{\text{sen}}\,\beta \cdot {\text{L}} &={\text{F}}\,{\text{cos}}\,\beta \cdot {\text{H}}\,+\,2\mu {\text{N}}_{\text{B}}\cdot {\text{D}}+\,\mu {\text{N}}_{\text{B}}\cdot {\text{H}}
-\end{align*}
-$$
-
-> + Si se ordena:
-
-$$
-\begin{align*}
-{\text{F}}\,{\text{cos}}\,\beta \cdot {\text{H}}\,+2\,{\text{F}}\,{\text{sen}}\,\beta \cdot {\text{L}}-{\text{mg}}\cdot {\text{L}}+2\mu {\text{D}}\cdot({\text{mg}}\,-\,{\text{F}}\,{\text{sen}}\,\beta)+\,\mu {\text{H}}\cdot ( {\text{mg}}\,-\,{\text{F}}\,{\text{sen}}\,\beta) &=0
-\end{align*}
-$$
-
-> + Al factorizar:
-
-$$
-\begin{align*}
-{\text{F}}\,{\text{cos}}\,\beta \cdot {\text{H}}\,+{\text{F}}\,{\text{sen}}\,\beta \cdot ({\text{2L}}-2\mu {\text{D}} -\mu {\text{H}}) - {\text{mg}}\cdot({\text{L}}-2\mu {\text{D}} -\mu {\text{H}}) &=0
-\end{align*}
-$$
-
-> + Si se separan términos y se factoriza:
-
-$$
-\begin{align*}
-{\text{F}}\bigg({\text{H}}\cdot{\text{cos}}\,\beta + ({\text{2L}}-2\mu {\text{D}} -\mu {\text{H}})\cdot{\text{sen}}\,\beta\bigg)  &={\text{mg}}\cdot({\text{L}}-2\mu {\text{D}} -\mu {\text{H}})
-\end{align*}
-$$
-
-> + De donde:
-
-$$
-\begin{align*}
-\frac{{\text{F}}}{{\text{mg}}}&=\frac{{\text{L}}-2\mu {\text{D}} -\mu {\text{H}}}{{\text{H}}\cdot{\text{cos}}\,\beta + ({\text{2L}}-2\mu {\text{D}} -\mu {\text{H}})\cdot{\text{sen}}\,\beta}
-\end{align*}
-$$
-
-> + Ahora, se pueden reemplazar los valores iniciales dados en el problema y se encuentra que:
-
-$$
-\begin{align*}
-\frac{{\text{F}}}{{\text{mg}}}&=0.4547
-\end{align*}
-$$
-
-> + A continuación, se re-escribe ${\text{N}}_{\text{B}}$ como:
-
-$$
-\begin{align*}
-{\text{N}}_{\text{B}}&={\text{mg}}\,-\,{\text{F}}\,{\text{sen}}\,\beta={\text{mg}}\bigg( 1-\frac{{\text{F}}}{{\text{mg}}}\,{\text{sen}}\,\beta\bigg)
-\end{align*}
-$$
-
-> + Y si se usa la Ec. (45):
-
-$$
-\begin{align*}
-{\text{F}}\,{\text{cos}}\,\beta\,-\mu\,{\text{N}}_{\text{B}}={\text{m}}{\text{a}}_{\text{x}}
-\end{align*}
-$$
-
-$$
-\begin{align*}
-{\text{a}}_{\text{x}}&=\frac{1}{{\text{m}}}\bigg( {\text{F}}\,{\text{cos}}\,\beta -\mu\cdot {\text{mg}}\bigg( 1-\frac{{\text{F}}}{{\text{mg}}}\,{\text{sen}}\,\beta\bigg) \bigg)
-\end{align*}
-$$
-
-> + Si se factoriza al lado derecho por ${\text{mg}}$:
-
-$$
-\begin{align*}
-{\text{a}}_{\text{x}}&=\frac{{\text{mg}}}{{\text{m}}}\bigg( \frac{\text{F}}{\text{mg}}\,{\text{cos}}\,\beta -\mu\cdot \bigg( 1-\frac{{\text{F}}}{{\text{mg}}}\,{\text{sen}}\,\beta\bigg) \bigg)
-\end{align*}
-$$
-
-> + Por lo tanto, se obtiene:
-
-$$
-\begin{align*}
-\frac{{\text{a}}_{\text{x}}}{{\text{m}}}&=0.4547\cdot{\text{cos}}\,\beta - \frac{1}{2}\cdot\bigg( 1-0.4547\,{\text{sen}}\,\beta\bigg)
-\end{align*}
-$$
-
-<!---
 + > ![Figura Señal2](ej1.png)
 
 Las reacciones horizontales en los puntos de contacto $A$ y $B$, como se muestra en el dibujo, son proporcionales a las reacciones verticales en esos puntos, siendo la constante de proporcionalidad es el coeficiente de fricción $\mu$.

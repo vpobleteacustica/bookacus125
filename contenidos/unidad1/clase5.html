@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4. Dinámica de sistema de cuerpo rígido &#8212; ACUS 125 Apuntes de clases.</title>
+    <title>5. Análisis del movimiento de un cuerpo rígido en rotación pura, en torno a un punto fijo \({\text{0}}\) &#8212; ACUS 125 Apuntes de clases.</title>
   
   
   
@@ -64,11 +64,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'contenidos/unidad1/clase4';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contenidos/unidad1/clase5';</script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="5. Análisis del movimiento de un cuerpo rígido en rotación pura, en torno a un punto fijo \({\text{0}}\)" href="clase5.html" />
-    <link rel="prev" title="3. Fuerzas sobre el sistema de \(N\) partículas" href="clase3.html" />
+    <link rel="next" title="6. Traslación y rotación al mismo tiempo." href="clase6.html" />
+    <link rel="prev" title="4. Dinámica de sistema de cuerpo rígido" href="clase4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -164,8 +164,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="clase1.html">1. Conceptos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clase2.html">2. Dinámica de sistemas de partículas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clase3.html">3. Fuerzas sobre el sistema de <span class="math notranslate nohighlight">\(N\)</span> partículas</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Dinámica de sistema de cuerpo rígido</a></li>
-<li class="toctree-l1"><a class="reference internal" href="clase5.html">5. Análisis del movimiento de un cuerpo rígido en rotación pura, en torno a un punto fijo <span class="math notranslate nohighlight">\({\text{0}}\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="clase4.html">4. Dinámica de sistema de cuerpo rígido</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Análisis del movimiento de un cuerpo rígido en rotación pura, en torno a un punto fijo <span class="math notranslate nohighlight">\({\text{0}}\)</span></a></li>
 <li class="toctree-l1"><a class="reference internal" href="clase6.html">6. Traslación y rotación al mismo tiempo.</a></li>
 </ul>
 
@@ -221,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/contenidos/unidad1/clase4.md" target="_blank"
+      <li><a href="../../_sources/contenidos/unidad1/clase5.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -301,7 +301,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Dinámica de sistema de cuerpo rígido</h1>
+    <h1>Análisis del movimiento de un cuerpo rígido en rotación pura, en torno a un punto fijo {\text{0}}</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -315,99 +315,163 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="dinamica-de-sistema-de-cuerpo-rigido">
-<h1><span class="section-number">4. </span>Dinámica de sistema de cuerpo rígido<a class="headerlink" href="#dinamica-de-sistema-de-cuerpo-rigido" title="Permalink to this heading">#</a></h1>
-<ul>
-<li><blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">Cuerpo</span> <span class="pre">Rígido:</span></code> Se caracteriza porque tiene una masa que se distribuye de manera continua a lo largo del cuerpo.</p>
-</div></blockquote>
-</li>
-<li><blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">Densidad</span> <span class="pre">de</span> <span class="pre">Masa:</span></code> Se define <span class="math notranslate nohighlight">\(\rho(x,y,z)\)</span> como una función de densidad de masa que representa una masa por unidad de volumen.</p>
-</div></blockquote>
-</li>
-<li><blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">Elemento</span> <span class="pre">Diferencial</span> <span class="pre">de</span> <span class="pre">Masa:</span></code> En el caso de un cuerpo rígido, vamos a reemplazar <span class="math notranslate nohighlight">\(m_{i}\)</span> por: <span class="math notranslate nohighlight">\({dm}\,(x,y,z)\)</span>.</p>
-</div></blockquote>
-</li>
-<li><blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">Traslación:</span></code> Por analogía con un sistema de partículas:</p>
-</div></blockquote>
-</li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\bf{F}}&amp;=\,\sum_{i=1}^{N}m_{i}\,{\bf{\ddot{r}}}_{i}\,=\sum_{i=1}^{N}m_{i}\,{\bf{a}}_{i}\quad\quad {\text{i=1,2,}}\ldots{\text{N}}
-\end{align*}
-\]</div>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Para un cuerpo rígido, la fuerza resultante <span class="math notranslate nohighlight">\({\bf{F}}(t)\)</span> será igual a:</p>
-</div>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\bf{F}}(t)&amp;=\,\int_{{\text{cuerpo}}}^{}{\bf{a}}(x,y,z,t)\,{dm}\,(x,y,z)
-\label{eq39}\tag{39}
-\end{align*}
-\]</div>
-<ul>
-<li><blockquote>
-<div><p>Con <span class="math notranslate nohighlight">\({\bf{a}}(x,y,z,t)\)</span> el vector de aceleración en un punto sobre el cuerpo rígido y <span class="math notranslate nohighlight">\({dm}\,(x,y,z)=\rho(x,y,z)\,dV\)</span>, siendo <span class="math notranslate nohighlight">\(V\)</span> un elemento diferencial de volumen.</p>
-</div></blockquote>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>En <code class="docutils literal notranslate"><span class="pre">traslación</span> <span class="pre">pura</span></code>, se cumple que para todos los puntos del sistema de cuerpo rígido, la aceleración es la misma, es decir, <span class="math notranslate nohighlight">\({\bf{a}}(x,y,z,t)={\bf{a}}(t)\)</span>. Por lo que la ecuación de movimiento del sistema quedará:</p>
-</div>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\bf{F}}(t)&amp;=\,{\bf{a}}(t)\,\int_{{\text{cuerpo}}}^{}{dm}\,(x,y,z)
-\label{eq40}\tag{40}
-\end{align*}
-\]</div>
-<ul>
-<li><blockquote>
-<div><p>Además, la masa total del sistema de cuerpo rígido es:</p>
-</div></blockquote>
-</li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-\int_{{\text{cuerpo}}}^{}{dm}\,(x,y,z)&amp;=m
-\label{eq41}\tag{41}
-\end{align*}
-\]</div>
-<ul>
-<li><blockquote>
-<div><p>Así, la ecuación diferencial de movimiento queda expresada como:</p>
-</div></blockquote>
-</li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\bf{F}}(t)&amp;=\,m\,{\bf{a}}(t)
-\label{eq42}\tag{42}
-\end{align*}
-\]</div>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Como ejercicio, obtener las ecuaciones de movimiento para el siguiente sistema de cuerpo rígido en traslación horizontal.</p>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="analisis-del-movimiento-de-un-cuerpo-rigido-en-rotacion-pura-en-torno-a-un-punto-fijo-text-0">
+<h1><span class="section-number">5. </span>Análisis del movimiento de un cuerpo rígido en rotación pura, en torno a un punto fijo <span class="math notranslate nohighlight">\({\text{0}}\)</span><a class="headerlink" href="#analisis-del-movimiento-de-un-cuerpo-rigido-en-rotacion-pura-en-torno-a-un-punto-fijo-text-0" title="Permalink to this heading">#</a></h1>
 <blockquote>
 <div><ul class="simple">
-<li><p>Las reacciones horizontales en los puntos de contacto A y B, como se muestra en el dibujo de la figura, son proporcionales a las reacciones verticales en esos puntos, siendo la constante de proporcionalidad el coeficiente de fricción <span class="math notranslate nohighlight">\(\mu\)</span>.</p></li>
-<li><p>Usar los valores: <span class="math notranslate nohighlight">\(\beta = 30^{\text{o}}\)</span>; <span class="math notranslate nohighlight">\(\mu = 0.5\)</span>; <span class="math notranslate nohighlight">\(\text{H}=0.6\,{\text{L}}\)</span>; y <span class="math notranslate nohighlight">\(\text{D}=0.1\,{\text{L}}\)</span>, y determinar la magnitud de la fuerza, <span class="math notranslate nohighlight">\(\text{F}\)</span>, como una fracción del peso, <span class="math notranslate nohighlight">\(\text{m}{\text{g}}\)</span>, cuando el cuerpo está a punto de volcar (<strong>pero no se vuelca!</strong>), al igual que la aceleración del cuerpo como una fracción de <span class="math notranslate nohighlight">\(\text{g}\)</span>.</p></li>
+<li><p>El movimiento se describe por la ecuación de <code class="docutils literal notranslate"><span class="pre">Momento</span> <span class="pre">de</span> <span class="pre">la</span> <span class="pre">Fuerza:</span></code>.</p></li>
+<li><p>Si se recuerda, para el caso de un <code class="docutils literal notranslate"><span class="pre">Sistema</span> <span class="pre">de</span> <span class="pre">N</span> <span class="pre">Partículas</span></code>, la ecuación de momento de la fuerza en torno a un punto fijo <span class="math notranslate nohighlight">\({\text{0}}\)</span>:</p></li>
 </ul>
 </div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\bf{M}}_{\text{0}}&amp;=\,\sum_{i=1}^{N}{\bf{r}}_{i}\times {\bf{F}}_{i}
+\end{align*}
+\]</div>
+<blockquote>
+<div><ul class="simple">
+<li><p>Ahora, para el sistema <code class="docutils literal notranslate"><span class="pre">cuerpo</span> <span class="pre">rígido</span></code>, la ecuación de Momento de la Fuerza o Torque, resultante alrededor del punto fijo <span class="math notranslate nohighlight">\({\text{0}}\)</span> será:</p></li>
+</ul>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\bf{M}}_{\text{0}}&amp;=\int_{{\text{cuerpo}}}^{}{\bf{r}}\times \text{d}{\bf{{\text{F}}}}
+\label{eq48}\tag{48}
+\end{align*}
+\]</div>
+<blockquote>
+<div><ul class="simple">
+<li><p>También, si recordamos, vimos que para el mismo <code class="docutils literal notranslate"><span class="pre">Sistema</span> <span class="pre">de</span> <span class="pre">N</span> <span class="pre">Partículas</span></code>, el momentum angular del cuerpo en torno al punto fijo <span class="math notranslate nohighlight">\({\text{0}}\)</span> es:</p></li>
+</ul>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\bf{H}}_{\text{0}}&amp;=\,\sum_{i=1}^{N}{\bf{r}}_{i}\times m_{i}{\bf{\dot{r}}}_{i}
+\end{align*}
+\]</div>
+<blockquote>
+<div><ul class="simple">
+<li><p>Esta vez, en el caso de un sistema de cuerpo rígido:</p></li>
+</ul>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\bf{H}}_{\text{0}}&amp;=\int_{{\text{cuerpo}}}^{}{\bf{r}}\times {\bf{{\text{v}}}}\, \text{dm}
+\label{eq49}\tag{49}
+\end{align*}
+\]</div>
+<blockquote>
+<div><ul class="simple">
+<li><p>Pero, en el caso de <code class="docutils literal notranslate"><span class="pre">rotación</span> <span class="pre">pura</span> <span class="pre">en</span> <span class="pre">un</span> <span class="pre">plano</span></code>, anteriormente ya vimos que la velocidad tiene solamente una componente en dirección angular <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>:</p></li>
+</ul>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\bf{{\text{v}}}}&amp;=r\,\dot{\theta}\,\hat{\theta}=r\,\omega\,\hat{\theta}
+\end{align*}
+\]</div>
+<blockquote>
+<div><ul class="simple">
+<li><p>Reemplazando:</p></li>
+</ul>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\bf{H}}_{\text{0}}&amp;=\int_{{\text{cuerpo}}}^{}r\,\hat{r}\,\times\,r\,\omega\,\hat{\theta}\,\,\text{dm}= \Bigg(\int_{{\text{cuerpo}}}^{} r^{2}\,\text{dm} \Bigg)\,\omega\, \hat{k}\,=\,{\text{I}}_{\text{0}}\,\omega\, \hat{k}
+\end{align*}
+\]</div>
 <ul>
 <li><blockquote>
-<div><p><img alt="Figura Señal2" src="../../_images/Fig1.png" /></p>
+<div><blockquote>
+<div><p>donde:</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\text{I}}_{\text{0}}&amp;=\int_{{\text{cuerpo}}}^{} r^{2}\,\text{dm}
+\end{align*}
+\]</div>
+<ul>
+<li><blockquote>
+<div><blockquote>
+<div><p>Se llama el <code class="docutils literal notranslate"><span class="pre">Momento</span> <span class="pre">de</span> <span class="pre">Inercia</span> <span class="pre">del</span> <span class="pre">Cuerpo</span> <span class="pre">Rígido</span></code> en torno al punto fijo <span class="math notranslate nohighlight">\({\text{0}}.\)</span> Por lo tanto, para movimiento planar, el momentum angular solamente tiene una componente:</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\bf{H}}_{\text{0}}&amp;={\text{I}}_{\text{0}}\,\omega\, \hat{k}
+\end{align*}
+\]</div>
+<blockquote>
+<div><ul class="simple">
+<li><p>Si se deriva con respecto al tiempo:</p></li>
+</ul>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\bf{\dot{H}}}_{\text{0}}&amp;={\text{I}}_{\text{0}}\,{\dot{\omega}}\, \hat{k}={\text{I}}_{\text{0}}\,{\alpha}\, \hat{k}
+\end{align*}
+\]</div>
+<ul>
+<li><blockquote>
+<div><blockquote>
+<div><p>con <span class="math notranslate nohighlight">\(\alpha\)</span> la <strong>aceleración angular del cuerpo</strong>. Pero, dado que se cumple la relación:</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\bf{\dot{H}}}_{\text{0}}&amp;={\bf{M}}_{\text{0}}
+\end{align*}
+\]</div>
+<ul>
+<li><blockquote>
+<div><blockquote>
+<div><p>entonces, el momento de la fuerza será:</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\bf{M}}_{\text{0}}&amp;={\text{I}}_{\text{0}}\,{\alpha}\, \hat{k}
+\end{align*}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Como ejercicio, vamos a analizar el movimiento de un péndulo compuesto.</p>
+</div>
+<ul>
+<li><blockquote>
+<div><p>Un <code class="docutils literal notranslate"><span class="pre">Cuerpo</span> <span class="pre">Rígido</span></code> suspendido desde un punto distinto al centro de masa y libre de oscilar, se conoce como <code class="docutils literal notranslate"><span class="pre">Péndulo</span> <span class="pre">Compuesto</span></code>.</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p>Vamos a suponer que tenemos el siguiente péndulo compuesto, consistente de una barra uniforme de masa total <span class="math notranslate nohighlight">\({\text{m}}\)</span> que cuelga en un punto <span class="math notranslate nohighlight">\({\text{0}}\)</span> a una distancia <span class="math notranslate nohighlight">\(\frac{{\text{L}}}{6}\)</span> del centro de masa <span class="math notranslate nohighlight">\({\text{C}}\)</span>.</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p>Si el péndulo se libera desde el reposo, en la posición horizontal, se nos pide determinar la aceleración angular <span class="math notranslate nohighlight">\(\alpha\)</span> del péndulo inmediatamente después de liberarse.</p>
+</div></blockquote>
+</li>
+<li><blockquote>
+<div><p><img alt="Figura Señal2" src="../../_images/compuesto.png" /></p>
 </div></blockquote>
 </li>
 </ul>
@@ -417,333 +481,136 @@ document.write(`
 </div>
 <blockquote>
 <div><ul class="simple">
-<li><p>Este es un problema de tipo bidimensional, todo ocurre en el plano-xy.</p></li>
-<li><p>Las ecuaciones de fuerza tienen solamente dos componentes escalares: <span class="math notranslate nohighlight">\(\text{F}_{x}=\text{m}\text{a}_{x}\)</span> y <span class="math notranslate nohighlight">\(\text{F}_{y}=\text{m}\text{a}_{y}\)</span>.</p></li>
-<li><p>Este es un caso de un cuerpo en traslación pura.</p></li>
-<li><p>La traslación es horizontal por lo que solamente hay <strong>aceleración en la dirección</strong> <span class="math notranslate nohighlight">\(\text{x}\)</span>.</p></li>
-<li><p>En el instante de <strong>casi volcar, pero NO vuelca</strong>, en el punto de contacto <span class="math notranslate nohighlight">\(\text{A}\)</span>, la reacción normal, <span class="math notranslate nohighlight">\(\text{N}_{\text{A}}=0\)</span>.</p></li>
-<li><p>En el DCL (Figura 2), se representan las siguientes fuerzas:</p></li>
-<li><p>La fuerza aplicada en la esquina superior izquierda <span class="math notranslate nohighlight">\({\text{F}}\)</span>.</p></li>
-<li><p>El peso que apunta verticalmente hacia abajo y pasa por el centro de masa.</p></li>
-<li><p>La fuerza normal <span class="math notranslate nohighlight">\(\text{N}_{\text{B}}\)</span> en el punto de contacto <span class="math notranslate nohighlight">\(\text{B}\)</span>.</p></li>
-<li><p>La fuerza de fricción <span class="math notranslate nohighlight">\({\text{F}_{\text{B}}}\)</span> en el punto de contacto <span class="math notranslate nohighlight">\(\text{B}\)</span></p></li>
-<li><p>Las ecuaciones de fuerza son:</p></li>
+<li><p>Aquí, se aplica la relación: <span class="math notranslate nohighlight">\(\text{M}_{\text{0}}={\text{I}}_{\text{0}}\,{\alpha}\)</span>. Para obtener <span class="math notranslate nohighlight">\(\text{M}_{\text{0}}\)</span> se deduce de la siguiente figura, que:</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><blockquote>
+<div><p><img alt="Figura Señal2" src="../../_images/convencion2.png" /></p>
+</div></blockquote>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\text{M}_{\text{0}}&amp;=-\,{\text{mg}}\,\frac{\text{L}}{6}
+\end{align*}
+\]</div>
+<blockquote>
+<div><ul class="simple">
+<li><p>Luego, se calcula el momento de inercia de la barra:</p></li>
+</ul>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+{\text{I}}_{\text{0}}&amp;=\int_{{\text{cuerpo}}}^{} x^{2}\,\text{dm}
+\end{align*}
+\]</div>
+<ul>
+<li><blockquote>
+<div><p>donde</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\text{dm}&amp;=\rho\, \text{dx}=\frac{m}{L}\, \text{dx}
+\end{align*}
+\]</div>
+<blockquote>
+<div><ul class="simple">
+<li><p>Por lo que se obtiene:</p></li>
 </ul>
 </div></blockquote>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
-{\text{F}_{\text{x}}}&amp;={\text{F}}\,{\text{cos}}\,\beta\,-\mu\,{\text{N}}_{\text{B}}={\text{m}}
-\label{eq43}\tag{43}
-{\text{a}}_{\text{x}}\\
-{\text{F}_{\text{y}}}&amp;={\text{F}}\,{\text{sen}}\,\beta\,+{\text{N}}_{\text{B}}\,-{\text{mg}}=0
-\label{eq44}\tag{44}
+{\text{I}}_{\text{0}}&amp;=\frac{\text{m}}{L}\,\int_{-\frac{L}{3}}^{\frac{2L}{3}} x^{2}\,\text{dx}\\
+&amp;= \frac{\text{m}\,\text{L}^{2}}{9}
 \end{align*}
 \end{split}\]</div>
 <blockquote>
 <div><ul class="simple">
-<li><p>Se tienen tres incógnitas: <span class="math notranslate nohighlight">\({\text{F}},\)</span> <span class="math notranslate nohighlight">\({\text{N}}_{\text{B}}\)</span> y <span class="math notranslate nohighlight">\({\text{a}}_{\text{x}}\)</span>, pero <code class="docutils literal notranslate"><span class="pre">sólo</span> <span class="pre">dos</span> <span class="pre">ecuaciones</span></code>.</p></li>
-<li><p>Se usa, por lo tanto, como tercera ecuación el momento de la fuerza en torno al centro de masa <span class="math notranslate nohighlight">\(\text{c}\)</span>.</p></li>
-<li><p>Como el cuerpo está en traslación pura en dirección <span class="math notranslate nohighlight">\({\text{x}}\)</span> y no sufre rotaciones, entonces la magnitud del momento de la fuerza en torno a <span class="math notranslate nohighlight">\(\text{c}\)</span> debe ser igual a cero: <span class="math notranslate nohighlight">\({\text{M}}_{\text{c}}=0\)</span></p></li>
+<li><p>Por lo tanto, la aceleración angular <span class="math notranslate nohighlight">\(\alpha\)</span> está dado por:</p></li>
+</ul>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\alpha&amp;=\frac{\text{M}_{\text{0}}}{{\text{I}}_{\text{0}}}=-\frac{3\,{\text{g}}}{2\,{\text{L}}}
+\end{align*}
+\]</div>
+<blockquote>
+<div><ul class="simple">
+<li><p>El signo menos indica que la aceleración angular sigue el sentido de las manecillas del reloj, esto es, va en el sentido contrario al señalado en la figura original.</p></li>
 </ul>
 </div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>Magnitud, dirección y convención de signos del momento de la fuerza en torno a <span class="math notranslate nohighlight">\(\text{c}\)</span>:</p>
+<p>Problema propuesto para desarrollar en equipos:</p>
 </div>
-<blockquote>
-<div><ul class="simple">
-<li><p>Recordar que el momento de la fuerza:</p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\bf{M}} &amp;={\bf{r}\times \bf{F}}
-\end{align*}
-\]</div>
-<blockquote>
-<div><blockquote>
-<div><ul class="simple">
-<li><p>puede ser re-escrito como: <span class="math notranslate nohighlight">\({\bf{\text{r}}} \times {\bf{\text{F}}}=\lVert {\bf{\text{r}}} \rVert\,\lVert {\bf{\text{F}}} \rVert\,{\text{sen}}(\alpha)\,\hat{\text{n}}\)</span></p></li>
-</ul>
-</div></blockquote>
-</div></blockquote>
-<blockquote>
-<div><ul class="simple">
-<li><p>Por lo cual, la magnitud del momento de la fuerza en torno a <span class="math notranslate nohighlight">\(\text{c}\)</span>, <span class="math notranslate nohighlight">\({\text{M}}_{\text{c}}\)</span>, es igual a la distancia perpendicular medida desde <span class="math notranslate nohighlight">\(\text{c}\)</span> a la línea de acción de la fuerza, multiplicada por la magnitud de la fuerza.</p></li>
-</ul>
-</div></blockquote>
-<blockquote>
-<div><ul class="simple">
-<li><p>La dirección del momento está dada por la regla de la mano derecha:</p></li>
-</ul>
-</div></blockquote>
-<blockquote>
-<div><blockquote>
-<div><ul class="simple">
-<li><p>Si sale del papel, <strong>tiene signo positivo</strong>, los dedos de la mano apuntan en sentido contrario a las manecillas del reloj.</p></li>
-</ul>
-</div></blockquote>
-</div></blockquote>
-<blockquote>
-<div><blockquote>
-<div><ul class="simple">
-<li><p>Mientras que, si se mete en la hoja, <strong>tiene signo negativo</strong>, los dedos de la mano apuntan en sentido de las manecillas del reloj:</p></li>
-</ul>
-</div></blockquote>
-</div></blockquote>
-<ul>
-<li><blockquote>
-<div><p><img alt="Figura Señal2" src="../../_images/Convencion.png" /></p>
-</div></blockquote>
-</li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li><p>Primero, si se analiza por el lado superior izquierdo en sentido horizontal, como se muestra en la figura siguiente, se obtiene <span class="math notranslate nohighlight">\({\text{M}}_{\text{c1}}\)</span></p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\text{M}}_{\text{c1}}&amp;=-\,{\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}
-\end{align*}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>Segundo, si se observa el punto de contacto del lado derecho inferior en dirección horizontal, se obtiene <span class="math notranslate nohighlight">\({\text{M}}_{\text{c2}}\)</span></p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\text{M}}_{\text{c2}}&amp;=-\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+D\bigg)
-\end{align*}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>En sentido vertical, si se observa el punto de contacto en la esquina inferior derecha, hay una fuerza que resulta de dos componentes: <span class="math notranslate nohighlight">\(({\text{N}}_{\text{B}} - {\text{F}}\,{\text{sen}}\,\beta)\)</span></p></li>
-</ul>
-</div></blockquote>
-<ul>
-<li><blockquote>
-<div><p><img alt="Figura Señal2" src="../../_images/Vertical.png" /></p>
-</div></blockquote>
-</li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\text{M}}_{\text{C3}}&amp;=({\text{N}}_{\text{B}} - {\text{F}}\,{\text{sen}}\,\beta)\cdot \frac{{\text{L}}}{2} 
-\end{align*}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>Por lo tanto,</p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-{\text{M}}_{\text{c}}&amp;={\text{M}}_{\text{c1}}+{\text{M}}_{\text{c2}}+{\text{M}}_{\text{c3}}\\
-&amp;=-\,{\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}-\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+D\bigg)+({\text{N}}_{\text{B}} - {\text{F}}\,{\text{sen}}\,\beta)\cdot \frac{{\text{L}}}{2} 
-\end{align*}
-\end{split}\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>En consecuencia, y debido a que no hay rotación, la tercera ecuación será <span class="math notranslate nohighlight">\({\text{M}}_{\text{c}}=0\)</span>, es decir,</p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
--\,{\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}-\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+D\bigg)+({\text{N}}_{\text{B}} - {\text{F}}\,{\text{sen}}\,\beta)\cdot \frac{{\text{L}}}{2} &amp;=0
-\end{align*}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>En resumen, obtenemos las siguientes tres ecuaciones de movimiento:</p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align}
-{\text{F}_{\text{x}}}&amp;={\text{F}}\,{\text{cos}}\,\beta\,-\mu\,{\text{N}}_{\text{B}}={\text{m}}{\text{a}}_{\text{x}}
-\label{eq45}\tag{45}
-\end{align}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-\begin{align}
-{\text{F}_{\text{y}}}&amp;={\text{F}}\,{\text{sen}}\,\beta\,+{\text{N}}_{\text{B}}\,-{\text{mg}}=0
-\label{eq46}\tag{46}
-\end{align}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-\begin{align}
--\,{\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}-\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+{\text{D}}\bigg)+({\text{N}}_{\text{B}} - {\text{F}}\,{\text{sen}}\,\beta)\cdot \frac{{\text{L}}}{2} &amp;=0
-\label{eq47}\tag{47}
-\end{align}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>De la Ec. (46) se despeja <span class="math notranslate nohighlight">\({\text{N}_{\text{B}}}\)</span></p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\text{N}}_{\text{B}}&amp;={\text{mg}}\,-\,{\text{F}}\,{\text{sen}}\,\beta
-\end{align*}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>La Ec. (47) se escribe como:</p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-({\text{N}}_{\text{B}} - {\text{F}}\,{\text{sen}}\,\beta)\cdot \frac{{\text{L}}}{2} &amp;={\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}\,+\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+{\text{D}}\bigg)
-\end{align*}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\text{N}}_{\text{B}} \cdot \frac{{\text{L}}}{2} \,-\,{\text{F}}\,{\text{sen}}\,\beta\cdot \frac{{\text{L}}}{2}&amp;={\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}\,+\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+{\text{D}}\bigg)
-\end{align*}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-({\text{mg}}\,-\,{\text{F}}\,{\text{sen}}\,\beta) \cdot \frac{{\text{L}}}{2} \,-\,{\text{F}}\,{\text{sen}}\,\beta\cdot \frac{{\text{L}}}{2}&amp;={\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}\,+\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+{\text{D}}\bigg)
-\end{align*}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\text{mg}}\cdot \frac{{\text{L}}}{2} -{\text{F}}\,{\text{sen}}\,\beta \cdot {\text{L}} &amp;={\text{F}}\,{\text{cos}}\,\beta \cdot \frac{{\text{H}}}{2}\,+\,\mu {\text{N}}_{\text{B}}\cdot \bigg(\frac{{\text{H}}}{2}+{\text{D}}\bigg)
-\end{align*}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>Si se multiplica por <span class="math notranslate nohighlight">\(2\)</span> a ambos lados:</p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\text{mg}}\cdot {\text{L}} -\,2\,{\text{F}}\,{\text{sen}}\,\beta \cdot {\text{L}} &amp;={\text{F}}\,{\text{cos}}\,\beta \cdot {\text{H}}\,+\,2\mu {\text{N}}_{\text{B}}\cdot {\text{D}}+\,\mu {\text{N}}_{\text{B}}\cdot {\text{H}}
-\end{align*}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>Si se ordena:</p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\text{F}}\,{\text{cos}}\,\beta \cdot {\text{H}}\,+2\,{\text{F}}\,{\text{sen}}\,\beta \cdot {\text{L}}-{\text{mg}}\cdot {\text{L}}+2\mu {\text{D}}\cdot({\text{mg}}\,-\,{\text{F}}\,{\text{sen}}\,\beta)+\,\mu {\text{H}}\cdot ( {\text{mg}}\,-\,{\text{F}}\,{\text{sen}}\,\beta) &amp;=0
-\end{align*}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>Al factorizar:</p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\text{F}}\,{\text{cos}}\,\beta \cdot {\text{H}}\,+{\text{F}}\,{\text{sen}}\,\beta \cdot ({\text{2L}}-2\mu {\text{D}} -\mu {\text{H}}) - {\text{mg}}\cdot({\text{L}}-2\mu {\text{D}} -\mu {\text{H}}) &amp;=0
-\end{align*}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>Si se separan términos y se factoriza:</p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\text{F}}\bigg({\text{H}}\cdot{\text{cos}}\,\beta + ({\text{2L}}-2\mu {\text{D}} -\mu {\text{H}})\cdot{\text{sen}}\,\beta\bigg)  &amp;={\text{mg}}\cdot({\text{L}}-2\mu {\text{D}} -\mu {\text{H}})
-\end{align*}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>De donde:</p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-\frac{{\text{F}}}{{\text{mg}}}&amp;=\frac{{\text{L}}-2\mu {\text{D}} -\mu {\text{H}}}{{\text{H}}\cdot{\text{cos}}\,\beta + ({\text{2L}}-2\mu {\text{D}} -\mu {\text{H}})\cdot{\text{sen}}\,\beta}
-\end{align*}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>Ahora, se pueden reemplazar los valores iniciales dados en el problema y se encuentra que:</p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-\frac{{\text{F}}}{{\text{mg}}}&amp;=0.4547
-\end{align*}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>A continuación, se re-escribe <span class="math notranslate nohighlight">\({\text{N}}_{\text{B}}\)</span> como:</p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\text{N}}_{\text{B}}&amp;={\text{mg}}\,-\,{\text{F}}\,{\text{sen}}\,\beta={\text{mg}}\bigg( 1-\frac{{\text{F}}}{{\text{mg}}}\,{\text{sen}}\,\beta\bigg)
-\end{align*}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>Y si se usa la Ec. (45):</p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\text{F}}\,{\text{cos}}\,\beta\,-\mu\,{\text{N}}_{\text{B}}={\text{m}}{\text{a}}_{\text{x}}
-\end{align*}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\text{a}}_{\text{x}}&amp;=\frac{1}{{\text{m}}}\bigg( {\text{F}}\,{\text{cos}}\,\beta -\mu\cdot {\text{mg}}\bigg( 1-\frac{{\text{F}}}{{\text{mg}}}\,{\text{sen}}\,\beta\bigg) \bigg)
-\end{align*}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>Si se factoriza al lado derecho por <span class="math notranslate nohighlight">\({\text{mg}}\)</span>:</p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-{\text{a}}_{\text{x}}&amp;=\frac{{\text{mg}}}{{\text{m}}}\bigg( \frac{\text{F}}{\text{mg}}\,{\text{cos}}\,\beta -\mu\cdot \bigg( 1-\frac{{\text{F}}}{{\text{mg}}}\,{\text{sen}}\,\beta\bigg) \bigg)
-\end{align*}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p>Por lo tanto, se obtiene:</p></li>
-</ul>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\begin{align*}
-\frac{{\text{a}}_{\text{x}}}{{\text{m}}}&amp;=0.4547\cdot{\text{cos}}\,\beta - \frac{1}{2}\cdot\bigg( 1-0.4547\,{\text{sen}}\,\beta\bigg)
-\end{align*}
-\]</div>
 <!---
++ > `Cuerpo Rígido:` Se caracteriza porque tiene una masa que se distribuye de manera continua a lo largo del cuerpo.
+
++ > `Densidad de Masa:` Se define $\rho(x,y,z)$ como una función de densidad de masa que representa una masa por unidad de volumen.
+
++ > `Elemento Diferencial de Masa:` En el caso de un cuerpo rígido, vamos a reemplazar $m_{i}$ por: ${dm}\,(x,y,z)$.
+
++ > `Traslación:` Por analogía con un sistema de partículas:
+
+$$
+\begin{align*}
+{\bf{F}}&=\,\sum_{i=1}^{N}m_{i}\,{\bf{\ddot{r}}}_{i}\,=\sum_{i=1}^{N}m_{i}\,{\bf{a}}_{i}\quad\quad {\text{i=1,2,}}\ldots{\text{N}}
+\end{align*}
+$$
+
+```{note}
+Para un cuerpo rígido, la fuerza resultante ${\bf{F}}(t)$ será igual a:
+```
+
+$$
+\begin{align*}
+{\bf{F}}(t)&=\,\int_{{\text{cuerpo}}}^{}{\bf{a}}(x,y,z,t)\,{dm}\,(x,y,z)
+\label{eq39}\tag{39}
+\end{align*}
+$$
+
++ > Con ${\bf{a}}(x,y,z,t)$ el vector de aceleración en un punto sobre el cuerpo rígido y ${dm}\,(x,y,z)=\rho(x,y,z)\,dV$, siendo $V$ un elemento diferencial de volumen. 
+
+```{note}
+En `traslación pura`, se cumple que para todos los puntos del sistema de cuerpo rígido, la aceleración es la misma, es decir, ${\bf{a}}(x,y,z,t)={\bf{a}}(t)$. Por lo que la ecuación de movimiento del sistema quedará:
+```
+
+$$
+\begin{align*}
+{\bf{F}}(t)&=\,{\bf{a}}(t)\,\int_{{\text{cuerpo}}}^{}{dm}\,(x,y,z)
+\label{eq40}\tag{40}
+\end{align*}
+$$
+
++ > Además, la masa total del sistema de cuerpo rígido es:
+
+$$
+\begin{align*}
+\int_{{\text{cuerpo}}}^{}{dm}\,(x,y,z)&=m
+\label{eq41}\tag{41}
+\end{align*}
+$$
+
++ > Así, la ecuación diferencial de movimiento queda expresada como:
+
+$$
+\begin{align*}
+{\bf{F}}(t)&=\,m\,{\bf{a}}(t)
+\label{eq42}\tag{42}
+\end{align*}
+$$
+
+```{note}
+Como ejercicio, obtener las ecuaciones de movimiento para el siguiente sistema de cuerpo rígido en traslación horizontal.
+```
 + > ![Figura Señal2](ej1.png)
 
 Las reacciones horizontales en los puntos de contacto $A$ y $B$, como se muestra en el dibujo, son proporcionales a las reacciones verticales en esos puntos, siendo la constante de proporcionalidad es el coeficiente de fricción $\mu$.
@@ -1122,20 +989,20 @@ You can learn a lot more at [jupyterbook.org](https://jupyterbook.org).
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="clase3.html"
+       href="clase4.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Fuerzas sobre el sistema de <span class="math notranslate nohighlight">\(N\)</span> partículas</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Dinámica de sistema de cuerpo rígido</p>
       </div>
     </a>
     <a class="right-next"
-       href="clase5.html"
+       href="clase6.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Análisis del movimiento de un cuerpo rígido en rotación pura, en torno a un punto fijo <span class="math notranslate nohighlight">\({\text{0}}\)</span></p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Traslación y rotación al mismo tiempo.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
